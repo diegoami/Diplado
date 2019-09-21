@@ -9,3 +9,7 @@ with some fixes, some from the Taleworlds forum
 * Can spar with your army in the arena
 * Prisoners in your party do not disappear while selling those in your garrison to the constable
 * No crazy charge in battle of your party (they await your orders)
+* Body guards
+* Import / Export companions
+* Whistle for your horse (key M)
+* Taunt your opponents, so that they will attack you (key O)

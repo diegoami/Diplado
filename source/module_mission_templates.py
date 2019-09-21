@@ -1656,6 +1656,72 @@ common_siege_init = (
     (call_script, "script_init_death_cam"), #SB : initialize this here
     ])
 
+
+#Taunting system
+common_taunting_system = (
+  0, 0, 180, [(key_clicked, key_o),],
+  [
+       (get_player_agent_no, ":cool_man"),
+       (agent_get_troop_id, ":cool_trp", ":cool_man"),
+       (store_skill_level, ":i_skl_level", "skl_ironflesh", ":cool_trp"),
+       (agent_get_position, pos1, ":cool_man"),
+        (assign, ":t_value", 100),
+         (try_begin),
+          (eq, ":i_skl_level", 1),
+          (assign, ":t_value", 150),
+           (else_try),
+          (eq, ":i_skl_level", 2),
+          (assign, ":t_value", 200),
+           (else_try),
+          (eq, ":i_skl_level", 3),
+          (assign, ":t_value", 250),
+           (else_try),
+          (eq, ":i_skl_level", 4),
+          (assign, ":t_value", 300),
+           (else_try),
+          (eq, ":i_skl_level", 5),
+          (assign, ":t_value", 350),
+           (else_try),
+          (eq, ":i_skl_level", 6),
+          (assign, ":t_value", 400),
+           (else_try),
+          (eq, ":i_skl_level", 7),
+          (assign, ":t_value", 450),
+           (else_try),
+          (eq, ":i_skl_level", 8),
+          (assign, ":t_value", 500),
+           (else_try),
+          (eq, ":i_skl_level", 9),
+          (assign, ":t_value", 550),
+           (else_try),
+          (eq, ":i_skl_level", 10),
+          (assign, ":t_value", 600),
+         (try_end),
+        #(val_add, ":t_value", 3000), #DEBUG
+        (assign, reg0, ":t_value"),
+        (try_for_agents, ":taunted"),
+         (agent_get_position, pos2, ":taunted"),
+         (get_distance_between_positions, ":t_distance", pos1, pos2),
+         (le,":t_distance", ":t_value"),
+         (agent_is_alive, ":taunted"),
+         (neg|agent_is_ally, ":taunted"),
+          (agent_force_rethink, ":taunted"),
+          (agent_clear_relations_with_agents, ":taunted"),
+          (agent_set_is_alarmed, ":taunted", 0),
+          (agent_set_look_target_agent, ":taunted", ":cool_man"),
+         (try_begin),
+           (agent_is_alive, ":cool_man"),
+           (agent_add_relation_with_agent, ":taunted", ":cool_man", -1),
+           (agent_set_is_alarmed, ":taunted", 1),
+           (agent_set_scripted_destination, ":taunted", pos1),
+        (try_end),
+      (try_end),
+      #(agent_get_number_of_enemies_following, ":t_taunted", ":cool_man"),
+      #(assign, reg1, ":t_taunted"),
+      (display_message, "@ Taunt launched. {reg0} is the taunt range."),
+      (play_sound, "snd_cow_moo")
+])
+
 common_music_situation_update = (
   30, 0, 0, [],
   [
@@ -3606,7 +3672,8 @@ mission_templates = [
          (assign, "$g_latest_order_3", 1),
          (assign, "$g_latest_order_4", 1),
          ]),
-
+        call_horse_trigger_1,
+        call_horse_trigger_2,
 
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
                            (assign,"$defender_reinforcement_stage",0),
@@ -3627,6 +3694,7 @@ mission_templates = [
 
       common_music_situation_update,
       common_battle_check_friendly_kills,
+      common_taunting_system,
 
       (1, 0, 5, [
 
@@ -3678,6 +3746,9 @@ mission_templates = [
 
       common_battle_check_victory_condition,
       common_battle_victory_display,
+      call_horse_trigger_1,
+      call_horse_trigger_2,
+      common_taunting_system,
 
       (1, 4,
       ##diplomacy begin
@@ -3790,6 +3861,9 @@ mission_templates = [
       common_battle_check_friendly_kills,
       common_battle_check_victory_condition,
       common_battle_victory_display,
+      call_horse_trigger_1,
+      call_horse_trigger_2,
+      common_taunting_system,
 
       (1, 4,
       ##diplomacy begin
@@ -3856,8 +3930,13 @@ mission_templates = [
                            (call_script, "script_combat_music_set_situation_with_culture"),
                            ]),
 
+
+
       common_music_situation_update,
       common_battle_check_friendly_kills,
+      common_taunting_system,
+      call_horse_trigger_1,
+      call_horse_trigger_2,
 
       (1, 0, 5, [(lt,"$defender_reinforcement_stage",2),
                  (store_mission_timer_a,":mission_time"),
@@ -3955,7 +4034,7 @@ mission_templates = [
 
       common_battle_inventory,
       common_battle_order_panel,
-      common_battle_order_panel_tick,
+      common_battle_order_panel_tick
 
 ##      #AI Tiggers
 ##      (0, 0, ti_once, [
@@ -4181,6 +4260,7 @@ mission_templates = [
       common_battle_check_friendly_kills,
       common_battle_check_victory_condition,
       common_battle_victory_display,
+        common_taunting_system,
 
       (1, 4,
       ##diplomacy begin
@@ -4262,6 +4342,7 @@ mission_templates = [
       common_battle_check_friendly_kills,
       common_battle_check_victory_condition,
       common_battle_victory_display,
+        common_taunting_system,
 
       (1, 4,
       ##diplomacy begin
@@ -4365,6 +4446,7 @@ mission_templates = [
 
       common_music_situation_update,
       common_battle_check_friendly_kills,
+        common_taunting_system,
 
       (1, 60, ti_once, [(store_mission_timer_a, reg(1)),
                         (ge, reg(1), 10),
@@ -4494,6 +4576,7 @@ mission_templates = [
       common_siege_move_belfry,
       common_siege_rotate_belfry,
       common_siege_assign_men_to_belfry,
+        common_taunting_system,
     ]
     ##diplomacy begin
     + dplmc_battle_mode_triggers,
@@ -4540,6 +4623,7 @@ mission_templates = [
       common_battle_order_panel,
       common_battle_order_panel_tick,
       common_inventory_not_available,
+        common_taunting_system,
 
       (ti_on_agent_killed_or_wounded, 0, 0, [],
        [
