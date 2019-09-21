@@ -53,7 +53,7 @@ bodyguard_trigger_a = (
     # condition for not sneaking in; to exclude prison-breaks, etc change to (eq, "$g_mt_mode", tcm_default")
     [
         # Get number of bodyguards
-        (display_message, "@{!}DEBUG -- bodyguard_trigger_a"),
+
         (store_skill_level, ":leadership", skl_leadership, "trp_player"),
         (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
         (val_div, ":leadership", 3),
@@ -128,7 +128,7 @@ bodyguard_trigger_a = (
 bodyguard_trigger_b = (
     ti_on_agent_spawn, 0, 0, [],
     [
-        (display_message, "@{!}DEBUG -- bodyguard_trigger_b"),
+
         (store_trigger_param_1, ":agent"),
         (agent_get_troop_id, ":troop", ":agent"),
         (neq, ":troop", "trp_player"),
@@ -160,7 +160,7 @@ bodyguard_trigger_b = (
 bodyguard_trigger_c = (
     ti_on_agent_killed_or_wounded, 0, 0, [],
     [
-        (display_message, "@{!}DEBUG -- bodyguard_trigger_c"),
+
         (store_trigger_param_1, ":dead_agent"),
 
         (agent_get_troop_id, ":troop", ":dead_agent"),
@@ -2387,7 +2387,7 @@ mission_templates = [
     [
       (1, 0, ti_once, [],
       [
-        (display_message, "@{!}DEBUG -- First trigger in town"),
+
         (store_current_scene, ":cur_scene"),
         (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
         (try_begin),
@@ -2403,7 +2403,7 @@ mission_templates = [
 
       (ti_before_mission_start, 0, 0, [],
       [
-        (display_message, "@{!}DEBUG -- First trigger in town"),
+
         (call_script, "script_change_banners_and_chest"),
         (call_script, "script_initialize_tavern_variables"),
       ]),
@@ -2753,7 +2753,7 @@ mission_templates = [
     [
       (ti_on_agent_spawn, 0, 0, [],
       [
-        (display_message, "@{!}DEBUG -- First trigger in town"),
+
 
         (store_trigger_param_1, ":agent_no"),
         
