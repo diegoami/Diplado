@@ -2183,6 +2183,9 @@ dplmc_slot_town_trade_route_last_arrivals_end      = dplmc_slot_town_trade_route
 
 ##diplomacy end+
 
+
+slot_troop_horse = 601
+
 dplmc_spt_spouse                              = 19
 dplmc_spt_gift_caravan                        = 21
 spt_messenger                                 = 8 #no prefix since its outcommented in native

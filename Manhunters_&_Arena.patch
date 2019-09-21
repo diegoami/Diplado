@@ -1,0 +1,599 @@
+Index: source/ID_mission_templates.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- source/ID_mission_templates.py	(revision aab31ed012dd90f71870f058c44cbb154cff4cbe)
++++ source/ID_mission_templates.py	(revision 196268b0d756982ab7d5c54cdc6225b58c9f5a6a)
+@@ -23,27 +23,28 @@
+ mst_ai_training = 22
+ mst_camera_test = 23
+ mst_arena_melee_fight = 24
+-mst_arena_challenge_fight = 25
+-mst_duel_with_lord = 26
+-mst_wedding = 27
+-mst_tutorial_training_ground = 28
+-mst_tutorial_1 = 29
+-mst_tutorial_2 = 30
+-mst_tutorial_3 = 31
+-mst_tutorial_3_2 = 32
+-mst_tutorial_4 = 33
+-mst_tutorial_5 = 34
+-mst_quick_battle_battle = 35
+-mst_quick_battle_siege = 36
+-mst_multiplayer_dm = 37
+-mst_multiplayer_tdm = 38
+-mst_multiplayer_hq = 39
+-mst_multiplayer_cf = 40
+-mst_multiplayer_sg = 41
+-mst_multiplayer_bt = 42
+-mst_multiplayer_fd = 43
+-mst_bandit_lair = 44
+-mst_alley_fight = 45
+-mst_meeting_merchant = 46
+-mst_town_fight = 47
+-mst_multiplayer_duel = 48
++mst_arena_spar_fight = 25
++mst_arena_challenge_fight = 26
++mst_duel_with_lord = 27
++mst_wedding = 28
++mst_tutorial_training_ground = 29
++mst_tutorial_1 = 30
++mst_tutorial_2 = 31
++mst_tutorial_3 = 32
++mst_tutorial_3_2 = 33
++mst_tutorial_4 = 34
++mst_tutorial_5 = 35
++mst_quick_battle_battle = 36
++mst_quick_battle_siege = 37
++mst_multiplayer_dm = 38
++mst_multiplayer_tdm = 39
++mst_multiplayer_hq = 40
++mst_multiplayer_cf = 41
++mst_multiplayer_sg = 42
++mst_multiplayer_bt = 43
++mst_multiplayer_fd = 44
++mst_bandit_lair = 45
++mst_alley_fight = 46
++mst_meeting_merchant = 47
++mst_town_fight = 48
++mst_multiplayer_duel = 49
+Index: source/ID_particle_systems.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- source/ID_particle_systems.py	(revision aab31ed012dd90f71870f058c44cbb154cff4cbe)
++++ source/ID_particle_systems.py	(revision 196268b0d756982ab7d5c54cdc6225b58c9f5a6a)
+@@ -8,53 +8,57 @@
+ psys_game_water_splash_1 = 7
+ psys_game_water_splash_2 = 8
+ psys_game_water_splash_3 = 9
+-psys_torch_fire = 10
+-psys_fire_glow_1 = 11
+-psys_fire_glow_fixed = 12
+-psys_torch_smoke = 13
+-psys_flue_smoke_short = 14
+-psys_flue_smoke_tall = 15
+-psys_war_smoke_tall = 16
+-psys_ladder_dust_6m = 17
+-psys_ladder_dust_8m = 18
+-psys_ladder_dust_10m = 19
+-psys_ladder_dust_12m = 20
+-psys_ladder_dust_14m = 21
+-psys_ladder_straw_6m = 22
+-psys_ladder_straw_8m = 23
+-psys_ladder_straw_10m = 24
+-psys_ladder_straw_12m = 25
+-psys_ladder_straw_14m = 26
+-psys_torch_fire_sparks = 27
+-psys_fire_sparks_1 = 28
+-psys_pistol_smoke = 29
+-psys_brazier_fire_1 = 30
+-psys_cooking_fire_1 = 31
+-psys_cooking_smoke = 32
+-psys_food_steam = 33
+-psys_candle_light = 34
+-psys_candle_light_small = 35
+-psys_lamp_fire = 36
+-psys_dummy_smoke = 37
+-psys_dummy_straw = 38
+-psys_dummy_smoke_big = 39
+-psys_dummy_straw_big = 40
+-psys_gourd_smoke = 41
+-psys_gourd_piece_1 = 42
+-psys_gourd_piece_2 = 43
+-psys_fire_fly_1 = 44
+-psys_bug_fly_1 = 45
+-psys_moon_beam_1 = 46
+-psys_moon_beam_paricle_1 = 47
+-psys_night_smoke_1 = 48
+-psys_fireplace_fire_small = 49
+-psys_fireplace_fire_big = 50
+-psys_village_fire_big = 51
+-psys_village_fire_smoke_big = 52
+-psys_map_village_fire = 53
+-psys_map_village_fire_smoke = 54
+-psys_map_village_looted_smoke = 55
+-psys_dungeon_water_drops = 56
+-psys_wedding_rose = 57
+-psys_sea_foam_a = 58
+-psys_fall_leafs_a = 59
++psys_team_0 = 10
++psys_team_1 = 11
++psys_team_2 = 12
++psys_team_3 = 13
++psys_torch_fire = 14
++psys_fire_glow_1 = 15
++psys_fire_glow_fixed = 16
++psys_torch_smoke = 17
++psys_flue_smoke_short = 18
++psys_flue_smoke_tall = 19
++psys_war_smoke_tall = 20
++psys_ladder_dust_6m = 21
++psys_ladder_dust_8m = 22
++psys_ladder_dust_10m = 23
++psys_ladder_dust_12m = 24
++psys_ladder_dust_14m = 25
++psys_ladder_straw_6m = 26
++psys_ladder_straw_8m = 27
++psys_ladder_straw_10m = 28
++psys_ladder_straw_12m = 29
++psys_ladder_straw_14m = 30
++psys_torch_fire_sparks = 31
++psys_fire_sparks_1 = 32
++psys_pistol_smoke = 33
++psys_brazier_fire_1 = 34
++psys_cooking_fire_1 = 35
++psys_cooking_smoke = 36
++psys_food_steam = 37
++psys_candle_light = 38
++psys_candle_light_small = 39
++psys_lamp_fire = 40
++psys_dummy_smoke = 41
++psys_dummy_straw = 42
++psys_dummy_smoke_big = 43
++psys_dummy_straw_big = 44
++psys_gourd_smoke = 45
++psys_gourd_piece_1 = 46
++psys_gourd_piece_2 = 47
++psys_fire_fly_1 = 48
++psys_bug_fly_1 = 49
++psys_moon_beam_1 = 50
++psys_moon_beam_paricle_1 = 51
++psys_night_smoke_1 = 52
++psys_fireplace_fire_small = 53
++psys_fireplace_fire_big = 54
++psys_village_fire_big = 55
++psys_village_fire_smoke_big = 56
++psys_map_village_fire = 57
++psys_map_village_fire_smoke = 58
++psys_map_village_looted_smoke = 59
++psys_dungeon_water_drops = 60
++psys_wedding_rose = 61
++psys_sea_foam_a = 62
++psys_fall_leafs_a = 63
+Index: source/module_dialogs.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1254
+===================================================================
+--- source/module_dialogs.py	(revision aab31ed012dd90f71870f058c44cbb154cff4cbe)
++++ source/module_dialogs.py	(revision 196268b0d756982ab7d5c54cdc6225b58c9f5a6a)
+@@ -1749,6 +1749,13 @@
+ [party_tpl|pt_manhunters,"manhunter_talk_b1", [], "I knew it! Come on, lads, lets go get these bastards! Thanks a lot, friend.", "close_window",[(assign, "$g_leave_encounter",1)]],
+ [party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [], "No, haven't seen any outlaws lately.", "manhunter_talk_b2",[]],
+ [party_tpl|pt_manhunters,"manhunter_talk_b2", [], "Bah. They're holed up in this country like rats, but we'll smoke them out yet. Sooner or later.", "close_window",[(assign, "$g_leave_encounter",1)]],
++[party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [], "I wish to collect on the bounties of some criminals i have captured.", "manhunter_talk_b3",
++[[change_screen_trade_prisoners]]],
++[party_tpl|pt_manhunters,"manhunter_talk_b3", [], "There's your bounty. Now me and the lads are going to hunt down more criminals.", "close_window",[(assign, "$g_leave_encounter",1)]],
++[party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [], "Kiss my arse.", "manhunter_talk_b4",[]],
++[party_tpl|pt_manhunters,"manhunter_talk_b4", [], "How dare you! Prepare to die.", "close_window",
++[[encounter_attack]]],
++
+ 
+ [party_tpl|pt_looters|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker),], "{!}Warning: This line should never be displayed.", "looters_1",[
+ (str_store_string, s11, "@It's your money or your life, {mate/girlie}. No sudden moves or we'll run you through."),
+@@ -38794,9 +38801,193 @@
+ 
+ #  [anyone|plyr,"arena_master_talk", [], "About the arena fights...", "arena_master_melee",[]],
+   [anyone|plyr,"arena_master_talk", [], "About the melee fights...", "arena_master_melee_pretalk",[]],
++  #LAZERAS MODIFIED  {spar troops}
++  [anyone|plyr,"arena_master_talk", [(party_get_num_companions,":troops","p_main_party"),(gt,":troops",1)], "I would like to spar with some of my men.", "arena_master_spar_teams",[]], # Jinnai
++  #LAZERAS MODIFIED  {spar troops} 
+   [anyone|plyr,"arena_master_talk", [(eq, "$arena_tournaments_asked", 0)], "Will there be a tournament in nearby towns soon?", "arena_master_ask_tournaments",[(assign, "$arena_tournaments_asked", 1)]],
+   [anyone|plyr,"arena_master_talk", [], "I need to leave now. Good bye.", "close_window",[]],
++#LAZERAS MODIFIED  {spar troops}
++## Arena sparring begin - Jinnai
++  [anyone,"arena_master_spar_teams", [], "Certainly. The arena is currently available. Of course, you will have to supply your own gear, which means there will be no team uniforms.  But that aside, how many teams would you like?",
++     "arena_master_spar_teams_choose",[(try_for_range,":slot",1,33),(troop_set_slot, "trp_temp_array_a", ":slot", -1),(try_end),(troop_set_slot, "trp_temp_array_a", 1, "trp_player"),(assign,"$temp",1)]],
++  [anyone|plyr,"arena_master_spar_teams_choose", [], "Two.", "arena_master_spar_team_one",[(assign, "$g_tournament_next_num_teams", 2),]],
++  [anyone|plyr,"arena_master_spar_teams_choose", [(party_get_num_companions,":troops","p_main_party"),(gt,":troops",2)], "Three.", "arena_master_spar_team_one",[(assign, "$g_tournament_next_num_teams", 3),]],
++  [anyone|plyr,"arena_master_spar_teams_choose", [(party_get_num_companions,":troops","p_main_party"),(gt,":troops",3)], "Four.", "arena_master_spar_team_one",[(assign, "$g_tournament_next_num_teams", 4),]],
++  [anyone|plyr,"arena_master_spar_teams_choose", [], "Never mind. I've changed my mind.", "arena_master_pre_talk",[]],
++  [anyone,"arena_master_spar_team_one", [(eq,"$temp",8)], "Team One is full. Team Two is next.", "arena_master_spar_team_two",[(assign,"$temp",0)]],
++  [anyone,"arena_master_spar_team_one", [(assign,reg0,"$temp"),(store_sub,reg1,reg0,1)], "There {reg1?are:is} currently {reg0} {reg1?troops:troop} on Team One.  Which troop would you like to add?", "arena_master_spar_team_one_choose",[]],
++  [anyone|plyr|repeat_for_troops, "arena_master_spar_team_one_choose",
++   [
++     (store_repeat_object, ":troop"),
++     (party_get_num_companion_stacks,":num_stacks","p_main_party"),
++     (assign,":include",0),
++     (try_for_range,":stack",0,":num_stacks"),
++       (eq,":include",0),
++       (party_stack_get_troop_id,":troop_id","p_main_party",":stack"),
++       (ge,":troop_id",0),
++       (eq,":troop_id",":troop"),
++       (assign,":num_in",0),
++       (try_for_range,":counting",1,33),
++         (troop_get_slot,":already_in","trp_temp_array_a",":counting"),
++         (eq,":already_in",":troop"),
++         (val_add,":num_in",1),
++       (try_end),
++       (party_stack_get_size,":available","p_main_party",":stack"),
++       (gt,":available",":num_in"),
++       (assign,":include",1),
++     (try_end),
++     (eq,":include",1),
++     (store_sub,reg0,":available",":num_in"),
++     (str_store_troop_name,s11,":troop"),
++     ],
++   "{s11}. ({reg0} left.)", "arena_master_spar_team_one_add",
++   [
++     (store_repeat_object, "$temp_2"),
++     (val_add,"$temp",1),
++     (store_add,":offset","$temp",0),
++     (troop_set_slot, "trp_temp_array_a", ":offset", "$temp_2"),
++     (str_store_troop_name,s11,"$temp_2")
++     ]],
++  [anyone,"arena_master_spar_team_one_add", [], "{s11} has been added to Team One.", "arena_master_spar_team_one",[]],
++  [anyone|plyr,"arena_master_spar_team_one_choose", [], "I am finished with Team One.  Let's move on to Team Two.", "arena_master_spar_team_two",[(assign,"$temp",0)]],
++  [anyone|plyr,"arena_master_spar_team_one_choose", [], "Never mind. I'm calling the whole thing off.", "arena_master_pre_talk",[]],
++  [anyone,"arena_master_spar_team_two", [(gt,"$g_tournament_next_num_teams",2),(eq,"$temp",8)], "Team Two is full. Team Three is next.", "arena_master_spar_team_three",[(assign,"$temp",0)]],
++  [anyone,"arena_master_spar_team_two", [(eq,"$g_tournament_next_num_teams",2),(eq,"$temp",8)], "Team Two is full. Let the match begin!", "arena_master_spar_start_it_up",[]],
++  [anyone,"arena_master_spar_team_two", [(assign,reg0,"$temp"),(store_sub,reg1,reg0,1)], "There {reg1?are:is} currently {reg0} {reg1?troops:troop} on Team Two.  Which troop would you like to add?", "arena_master_spar_team_two_choose",[]],
++  [anyone|plyr|repeat_for_troops, "arena_master_spar_team_two_choose",
++   [
++     (store_repeat_object, ":troop"),
++     (party_get_num_companion_stacks,":num_stacks","p_main_party"),
++     (assign,":include",0),
++     (try_for_range,":stack",0,":num_stacks"),
++       (eq,":include",0),
++       (party_stack_get_troop_id,":troop_id","p_main_party",":stack"),
++       (ge,":troop_id",0),
++       (eq,":troop_id",":troop"),
++       (assign,":num_in",0),
++       (try_for_range,":counting",1,33),
++         (troop_get_slot,":already_in","trp_temp_array_a",":counting"),
++         (eq,":already_in",":troop"),
++         (val_add,":num_in",1),
++       (try_end),
++       (party_stack_get_size,":available","p_main_party",":stack"),
++       (gt,":available",":num_in"),
++       (assign,":include",1),
++     (try_end),
++     (eq,":include",1),
++     (store_sub,reg0,":available",":num_in"),
++     (str_store_troop_name,s11,":troop"),
++     ],
++   "{s11}. ({reg0} left.)", "arena_master_spar_team_two_add",
++   [
++     (store_repeat_object, "$temp_2"),
++     (val_add,"$temp",1),
++     (store_add,":offset","$temp",8),
++     (troop_set_slot, "trp_temp_array_a", ":offset", "$temp_2"),
++     (str_store_troop_name,s11,"$temp_2")
++     ]],
++  [anyone,"arena_master_spar_team_two_add", [], "{s11} has been added to Team Two.", "arena_master_spar_team_two",[]],
++  [anyone|plyr,"arena_master_spar_team_two_choose", [(gt,"$g_tournament_next_num_teams",2)], "I am finished with Team Two.  Let's move on to Team Three.", "arena_master_spar_team_three",[(assign,"$temp",0)]],
++  [anyone|plyr,"arena_master_spar_team_two_choose", [(eq,"$g_tournament_next_num_teams",2)], "I am finished with Team Two.  Let's begin the match.", "arena_master_spar_start_it_up",[]],
++  [anyone|plyr,"arena_master_spar_team_two_choose", [], "Never mind. I'm calling the whole thing off.", "arena_master_pre_talk",[]],
++  [anyone,"arena_master_spar_team_three", [(gt,"$g_tournament_next_num_teams",3),(eq,"$temp",8)], "Team Three is full. Team Four is next.", "arena_master_spar_team_four",[(assign,"$temp",0)]],
++  [anyone,"arena_master_spar_team_three", [(eq,"$g_tournament_next_num_teams",3),(eq,"$temp",8)], "Team Three is full. Let the match begin!", "arena_master_spar_start_it_up",[]],
++  [anyone,"arena_master_spar_team_three", [(assign,reg0,"$temp"),(store_sub,reg1,reg0,1)], "There {reg1?are:is} currently {reg0} {reg1?troops:troop} on Team Three.  Which troop would you like to add?", "arena_master_spar_team_three_choose",[]],
++  [anyone|plyr|repeat_for_troops, "arena_master_spar_team_three_choose",
++   [
++     (store_repeat_object, ":troop"),
++     (party_get_num_companion_stacks,":num_stacks","p_main_party"),
++     (assign,":include",0),
++     (try_for_range,":stack",0,":num_stacks"),
++       (eq,":include",0),
++       (party_stack_get_troop_id,":troop_id","p_main_party",":stack"),
++       (ge,":troop_id",0),
++       (eq,":troop_id",":troop"),
++       (assign,":num_in",0),
++       (try_for_range,":counting",1,33),
++         (troop_get_slot,":already_in","trp_temp_array_a",":counting"),
++         (eq,":already_in",":troop"),
++         (val_add,":num_in",1),
++       (try_end),
++       (party_stack_get_size,":available","p_main_party",":stack"),
++       (gt,":available",":num_in"),
++       (assign,":include",1),
++     (try_end),
++     (eq,":include",1),
++     (store_sub,reg0,":available",":num_in"),
++     (str_store_troop_name,s11,":troop"),
++     ],
++   "{s11}. ({reg0} left.)", "arena_master_spar_team_three_add",
++   [
++     (store_repeat_object, "$temp_2"),
++     (val_add,"$temp",1),
++     (store_add,":offset","$temp",16),
++     (troop_set_slot, "trp_temp_array_a", ":offset", "$temp_2"),
++     (str_store_troop_name,s11,"$temp_2")
++     ]],
++  [anyone,"arena_master_spar_team_three_add", [], "{s11} has been added to Team Three.", "arena_master_spar_team_three",[]],
++  [anyone|plyr,"arena_master_spar_team_three_choose", [(gt,"$g_tournament_next_num_teams",3)], "I am finished with Team Three.  Let's move on to Team Four.", "arena_master_spar_team_four",[(assign,"$temp",0)]],
++  [anyone|plyr,"arena_master_spar_team_three_choose", [(eq,"$g_tournament_next_num_teams",3)], "I am finished with Team Three.  Let's begin the match.", "arena_master_spar_start_it_up",[]],
++  [anyone|plyr,"arena_master_spar_team_three_choose", [], "Never mind. I'm calling the whole thing off.", "arena_master_pre_talk",[]],
++  [anyone,"arena_master_spar_team_four", [(eq,"$temp",8)], "Team Four is full. Let the match begin!", "arena_master_spar_start_it_up",[]],
++  [anyone,"arena_master_spar_team_four", [(assign,reg0,"$temp"),(store_sub,reg1,reg0,1)], "There {reg1?are:is} currently {reg0} {reg1?troops:troop} on Team Four.  Which troop would you like to add?", "arena_master_spar_team_four_choose",[]],
++  [anyone|plyr|repeat_for_troops, "arena_master_spar_team_four_choose",
++   [
++     (store_repeat_object, ":troop"),
++     (party_get_num_companion_stacks,":num_stacks","p_main_party"),
++     (assign,":include",0),
++     (try_for_range,":stack",0,":num_stacks"),
++       (eq,":include",0),
++       (party_stack_get_troop_id,":troop_id","p_main_party",":stack"),
++       (ge,":troop_id",0),
++       (eq,":troop_id",":troop"),
++       (assign,":num_in",0),
++       (try_for_range,":counting",1,33),
++         (troop_get_slot,":already_in","trp_temp_array_a",":counting"),
++         (eq,":already_in",":troop"),
++         (val_add,":num_in",1),
++       (try_end),
++       (party_stack_get_size,":available","p_main_party",":stack"),
++       (gt,":available",":num_in"),
++       (assign,":include",1),
++     (try_end),
++     (eq,":include",1),
++     (store_sub,reg0,":available",":num_in"),
++     (str_store_troop_name,s11,":troop"),
++     ],
++   "{s11}. ({reg0} left.)", "arena_master_spar_team_four_add",
++   [
++     (store_repeat_object, "$temp_2"),
++     (val_add,"$temp",1),
++     (store_add,":offset","$temp",24),
++     (troop_set_slot, "trp_temp_array_a", ":offset", "$temp_2"),
++     (str_store_troop_name,s11,"$temp_2")
++     ]],
++  [anyone,"arena_master_spar_team_four_add", [], "{s11} has been added to Team Four.", "arena_master_spar_team_four",[]],
++  [anyone|plyr,"arena_master_spar_team_four_choose", [], "I am finished with Team Four.  Let's begin the match.", "arena_master_spar_start_it_up",[]],
++  [anyone|plyr,"arena_master_spar_team_four_choose", [], "Never mind. I'm calling the whole thing off.", "arena_master_pre_talk",[]],
+ 
++  [anyone,"arena_master_spar_start_it_up", [], "Here you go then. Good luck.", "close_window",
++   [
++     (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
++     (modify_visitors_at_site, ":arena_scene"),
++     (reset_visitors),
++     (try_for_range,":num",1,33),
++       (troop_get_slot,":troop","trp_temp_array_a",":num"),
++       (ge,":troop",0),
++       (store_sub,":offset",":num",1), #Oops, easier to add this than go back and fix all the other instances
++       (set_visitor, ":offset", ":troop"),
++     (try_end),
++     (set_jump_mission, "mt_arena_spar_fight"),
++     (jump_to_scene, ":arena_scene"),
++     (change_screen_mission),
++     ]],
++## Arena sparring end
++#LAZERAS MODIFIED  {spar troops}
++
++
++
++  
+   [anyone,"arena_master_ask_tournaments", [], "{reg2?There won't be any tournaments any time soon.:{reg1?Tournaments are:A tournament is} going to be held at {s15}.}", "arena_master_talk",
+    [
+        (assign, ":num_tournaments", 0),
+Index: source/module_mission_templates.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- source/module_mission_templates.py	(revision aab31ed012dd90f71870f058c44cbb154cff4cbe)
++++ source/module_mission_templates.py	(revision 196268b0d756982ab7d5c54cdc6225b58c9f5a6a)
+@@ -4421,6 +4421,128 @@
+     tournament_triggers
+   ),
+ 
++  #LAZERAS MODIFIED  {spar troops}
++## Created a new template for sparring, just for simplicity - Jinnai
++  ("arena_spar_fight",mtf_arena_fight,-1,
++    "You enter a sparring match in the arena.",
++    [
++      (0,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (1,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (2,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (3,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (4,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (5,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (6,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++      (7,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
++
++      (8,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (9,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (10,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (11,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (12,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (13,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (14,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++      (15,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
++
++      (16,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (17,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (18,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (19,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (20,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (21,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (22,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++      (23,mtef_visitor_source|mtef_team_2,0,aif_start_alarmed,1,[]),
++
++      (24,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (25,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (26,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (27,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (28,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (29,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (30,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++      (31,mtef_visitor_source|mtef_team_3,0,aif_start_alarmed,1,[]),
++
++      (50, mtef_scene_source,af_override_horse|af_override_weapons|af_override_head,0,1,[]),
++      (52, mtef_scene_source,af_override_horse,0,1,[]),
++      (53, mtef_scene_source,af_override_horse,0,1,[]),
++      (54, mtef_scene_source,af_override_horse,0,1,[]),
++      (55, mtef_scene_source,af_override_horse,0,1,[]),
++    ],
++    [
++    (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
++    (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
++    (ti_tab_pressed, 0, 0, [],
++      [(question_box,"@End the sparring match?")]),
++    (ti_question_answered, 0, 0, [],
++      [(store_trigger_param_1,":answer"),
++       (eq,":answer",0),
++       (assign, "$g_mt_mode", abm_visit),
++       (set_jump_mission, "mt_arena_melee_fight"),
++       (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
++       (modify_visitors_at_site, ":arena_scene"),
++       (reset_visitors),
++       (set_visitor, 35, "trp_veteran_fighter"),
++       (set_visitor, 36, "trp_regular_fighter"),
++       (set_jump_entry, 50),
++       (jump_to_scene, ":arena_scene"),
++      ]),
++
++    (0, 0, ti_once, [],
++      [(play_sound, "snd_arena_ambiance", sf_looping),
++     (call_script, "script_music_set_situation_with_culture", mtf_sit_arena),
++      ]),
++
++    (0.1, 0, 0, [],
++      [
++        (try_for_agents,":agent"),
++          (agent_is_alive,":agent"),
++          (agent_is_human,":agent"),
++          (agent_get_position,pos1,":agent"),
++          (position_set_z_to_ground_level, pos1),
++          (agent_get_horse,":horse",":agent"),
++          (try_begin),
++            (gt,":horse",0),
++            (position_move_z,pos1,300),
++          (else_try),
++            (position_move_z,pos1,225),
++          (try_end),
++          (agent_get_team, ":team", ":agent"),
++          (try_begin),
++            (eq,":team",0),
++            (particle_system_burst,"psys_team_0",pos1,30),
++          (else_try),
++            (eq,":team",1),
++            (particle_system_burst,"psys_team_1",pos1,30),
++          (else_try),
++            (eq,":team",2),
++            (particle_system_burst,"psys_team_2",pos1,30),
++          (else_try),
++            (eq,":team",3),
++            (particle_system_burst,"psys_team_3",pos1,30),
++          (try_end),
++        (try_end),
++      ]),
++
++    (1, 4, ti_once, [(num_active_teams_le, 1)],
++      [
++       (try_begin),
++         (neg|main_hero_fallen),
++         (call_script, "script_play_victorious_sound"),
++       (try_end),
++       (assign, "$g_mt_mode", abm_visit),
++       (set_jump_mission, "mt_arena_melee_fight"),
++       (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
++       (modify_visitors_at_site, ":arena_scene"),
++       (reset_visitors),
++       (set_visitor, 35, "trp_veteran_fighter"),
++       (set_visitor, 36, "trp_regular_fighter"),
++       (set_jump_entry, 50),
++       (jump_to_scene, ":arena_scene"),
++      ]),
++    ],
++  ),
++#LAZERAS MODIFIED  {spar troops}
++  
+   (
+     "arena_challenge_fight",mtf_arena_fight|mtf_commit_casualties,-1,
+     "You enter a melee fight in the arena.",
+Index: source/module_particle_systems.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- source/module_particle_systems.py	(revision aab31ed012dd90f71870f058c44cbb154cff4cbe)
++++ source/module_particle_systems.py	(revision 196268b0d756982ab7d5c54cdc6225b58c9f5a6a)
+@@ -206,6 +206,65 @@
+      0.5                        #rotation damping
+     ),
+ 
++    
++
++    ("team_0", psf_billboard_3d|psf_global_emit_dir|psf_always_emit, "prt_mesh_fire_1",
++     50, 0.35, 0.2, 0.03, 10.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
++     (0.0, 0.8), (1, 0),        #alpha keys
++     (0.0, 0.1), (1, 0.8),      #red keys
++     (0.0, 0.0),(1, 0.0),       #green keys
++     (0.0, 0), (1, 0.0),      #blue keys
++     (0, 0.15),   (0.4, 0.3),   #scale keys
++     (0.04, 0.04, 0.04),      #emit box size
++     (0, 0, 0.5),               #emit velocity
++     0.0,                       #emit dir randomness
++     200,                       #rotation speed
++     0.5                        #rotation damping
++    ),
++
++    ("team_1", psf_billboard_3d|psf_global_emit_dir|psf_always_emit, "prt_mesh_fire_1",
++     50, 0.35, 0.2, 0.03, 10.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
++     (0.0, 0.8), (1, 0),        #alpha keys
++     (0.0, 0.0), (1, 0.0),      #red keys
++     (0.0, 0.0),(1, 0.0),       #green keys
++     (0.0, 1), (1, 0.8),      #blue keys
++     (0, 0.15),   (0.4, 0.3),   #scale keys
++     (0.04, 0.04, 0.04),      #emit box size
++     (0, 0, 0.5),               #emit velocity
++     0.0,                       #emit dir randomness
++     200,                       #rotation speed
++     0.5                        #rotation damping
++    ),
++
++    ("team_2", psf_billboard_3d|psf_global_emit_dir|psf_always_emit, "prt_mesh_fire_1",
++     50, 0.35, 0.2, 0.03, 10.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
++     (0.0, 0.8), (1, 0),        #alpha keys
++     (0.0, 0.0), (1, 0.0),      #red keys
++     (0.0, 1),(1, 0.8),       #green keys
++     (0.0, 0), (1, 0.0),      #blue keys
++     (0, 0.15),   (0.4, 0.3),   #scale keys
++     (0.04, 0.04, 0.04),      #emit box size
++     (0, 0, 0.5),               #emit velocity
++     0.0,                       #emit dir randomness
++     200,                       #rotation speed
++     0.5                        #rotation damping
++    ),
++
++    ("team_3", psf_billboard_3d|psf_global_emit_dir|psf_always_emit, "prt_mesh_fire_1",
++     50, 0.35, 0.2, 0.03, 10.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
++     (0.0, 0.8), (1, 0),        #alpha keys
++     (0.0, 1), (1, 0.8),      #red keys
++     (0.0, 1),(1, 0.8),       #green keys
++     (0.0, 1), (1, 0.8),      #blue keys
++     (0, 0.15),   (0.4, 0.3),   #scale keys
++     (0.04, 0.04, 0.04),      #emit box size
++     (0, 0, 0.5),               #emit velocity
++     0.0,                       #emit dir randomness
++     200,                       #rotation speed
++     0.5                        #rotation damping
++    ),
++
++
+     ("torch_fire", psf_billboard_3d|psf_global_emit_dir|psf_always_emit|psf_randomize_size|psf_randomize_rotation, "prt_mesh_fire_1",
+      50, 0.35, 0.2, 0.03, 10.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+      (0.5, 0.8), (1, 0),        #alpha keys
