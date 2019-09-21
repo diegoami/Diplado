@@ -43052,6 +43052,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 #  [anyone|plyr,"arena_master_talk", [], "About the arena fights...", "arena_master_melee",[]],
   [anyone|plyr,"arena_master_talk", [], "About the melee fights...", "arena_master_melee_pretalk",[]],
   [anyone|plyr,"arena_master_talk", [(eq, "$arena_tournaments_asked", 0)], "Will there be a tournament in nearby towns soon?", "arena_master_ask_tournaments",[(assign, "$arena_tournaments_asked", 1)]],
+    # LAZERAS MODIFIED  {spar troops}
+    [anyone | plyr, "arena_master_talk", [(party_get_num_companions, ":troops", "p_main_party"), (gt, ":troops", 1)],
+     "I would like to spar with some of my men.", "arena_master_spar_teams", []],  # Jinnai
+    # LAZERAS MODIFIED  {spar troops}
   [anyone|plyr,"arena_master_talk", [], "I need to leave now. Good bye.", "close_window",[]],
 
   [anyone,"arena_master_ask_tournaments", [], "{reg2?There won't be any tournaments any time soon.:{reg1?Tournaments are:A tournament is} going to be held at {s15}.}", "arena_master_talk",

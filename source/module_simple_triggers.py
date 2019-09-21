@@ -6406,7 +6406,7 @@ simple_triggers = [
   ]),
 
   # affilated family ai
-   (24 * 0.25,
+   (24 * 7,
    [
 	##nested diplomacy start+ (piggyback on this trigger) allow lords to return from exile
 	(assign, ":save_reg0", reg0),
