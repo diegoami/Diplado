@@ -3464,6 +3464,11 @@ mission_templates = [
                            (call_script, "script_init_death_cam"),
                            # (assign, "$g_dplmc_charge_when_dead", 0),
                            ##diplomacy end
+                           ## HOLD COMMAND begin
+                            (get_player_agent_no, ":player_agent"),
+                            (agent_get_team, ":player_team", ":player_agent"),
+                            (team_give_order, ":player_team", grc_everyone, mordr_hold)
+                            ## HOLD COMMAND end
                            ]),
 
       common_music_situation_update,
@@ -3620,6 +3625,11 @@ mission_templates = [
                            #SB : deathcam
                            (call_script, "script_init_death_cam"),
                            (call_script, "script_combat_music_set_situation_with_culture"),
+                           ## HOLD COMMAND begin
+                           (get_player_agent_no, ":player_agent"),
+                           (agent_get_team, ":player_team", ":player_agent"),
+                           (team_give_order, ":player_team", grc_everyone, mordr_hold)
+                           ## HOLD COMMAND end
                            ]),
 
       common_music_situation_update,
