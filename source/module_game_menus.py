@@ -4188,10 +4188,64 @@ TOTAL:  {reg5}"),
        ),
 
       ("action_retire",[],"Retire from adventuring.", [(jump_to_menu, "mnu_retirement_verify"),]),
+	   ("action_export_import",[],"Export/import NPCs.",
+        [
+          (assign, "$g_player_troop", "trp_player"),
+          (jump_to_menu, "mnu_export_import_npcs"),
+        ]
+       ),
       ("camp_action_4",[],"Back to camp menu.", [(jump_to_menu, "mnu_camp"),]),
       ]
   ),
+ ("export_import_npcs", mnf_enable_hot_keys,
+     "Please choose an NPC, then press key C to view and export/import this character.^^You choose {reg0?{s0}:none}.",
+     "none",
+     [
+         (assign, reg0, "$g_player_troop"),
+         (str_store_troop_name, s0, "$g_player_troop"),
+     ],
+     [
+         ("export_import_back", [], "Go back",
+          [
+              (assign, "$g_player_troop", "trp_player"),
+              (set_player_troop, "$g_player_troop"),
+              (jump_to_menu, "mnu_camp_action"),
+          ]
+          ),
+     ] + [("export_import_npc" + str(x + 1),
+           [
+               (store_add, ":dest_npc", "trp_npc1", x),
+               (str_store_troop_name, s0, ":dest_npc"),
+           ], "{s0}",
+           [
+               (store_add, ":dest_npc", "trp_npc1", x),
+               (assign, "$g_player_troop", ":dest_npc"),
+               (set_player_troop, "$g_player_troop"),
+           ]) for x in range(0, 8)] + [
+         ("export_import_next", [], "Next page", [(jump_to_menu, "mnu_export_import_npcs_2")]),
+     ]
+ ),
 
+ ("export_import_npcs_2", mnf_enable_hot_keys,
+     "Please choose an NPC, then press key C to view and export/import this character.^^You choose {reg0?{s0}:none}.",
+     "none",
+     [
+         (assign, reg0, "$g_player_troop"),
+         (str_store_troop_name, s0, "$g_player_troop"),
+     ],
+     [
+         ("export_import_prev", [], "Previous page", [(jump_to_menu, "mnu_export_import_npcs")]),
+     ] + [("export_import_npc" + str(x + 1),
+           [
+               (store_add, ":dest_npc", "trp_npc1", x),
+               (str_store_troop_name, s0, ":dest_npc"),
+           ], "{s0}",
+           [
+               (store_add, ":dest_npc", "trp_npc1", x),
+               (assign, "$g_player_troop", ":dest_npc"),
+               (set_player_troop, "$g_player_troop"),
+           ]) for x in range(8, 16)]
+  ),
   ("camp_recruit_prisoners",0,
    "You offer your prisoners freedom if they agree to join you as soldiers. {s18}",
    "none",
