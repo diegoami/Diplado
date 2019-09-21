@@ -53,6 +53,7 @@ bodyguard_triggers = [
      # condition for not sneaking in; to exclude prison-breaks, etc change to (eq, "$g_mt_mode", tcm_default")
      [
          # Get number of bodyguards
+         (display_message, "Bodyguard script"),
          (store_skill_level, ":leadership", skl_leadership, "trp_player"),
          (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
          (val_div, ":leadership", 3),
