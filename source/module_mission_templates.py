@@ -48,124 +48,128 @@ af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
 ##diplomacy begin
 
-bodyguard_triggers = [
-    (ti_after_mission_start, 0, ti_once, [(neq, "$g_mt_mode", tcm_disguised)],
-     # condition for not sneaking in; to exclude prison-breaks, etc change to (eq, "$g_mt_mode", tcm_default")
-     [
-         # Get number of bodyguards
-         (display_message, "Bodyguard script"),
-         (store_skill_level, ":leadership", skl_leadership, "trp_player"),
-         (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
-         (val_div, ":leadership", 3),
-         (val_div, ":renown", 400),
-         (store_add, ":max_guards", ":renown", ":leadership"),
-         (val_min, ":max_guards", 4),
+bodyguard_trigger_a = (
+    ti_after_mission_start, 0, ti_once, [(neq, "$g_mt_mode", tcm_disguised)],
+    # condition for not sneaking in; to exclude prison-breaks, etc change to (eq, "$g_mt_mode", tcm_default")
+    [
+        # Get number of bodyguards
+        (display_message, "@{!}DEBUG -- bodyguard_trigger_a"),
+        (store_skill_level, ":leadership", skl_leadership, "trp_player"),
+        (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+        (val_div, ":leadership", 3),
+        (val_div, ":renown", 400),
+        (store_add, ":max_guards", ":renown", ":leadership"),
+        (val_min, ":max_guards", 4),
 
-         (ge, ":max_guards", 1),
+        (ge, ":max_guards", 1),
 
-         # Get player info
-         (get_player_agent_no, ":player"),
-         (agent_get_team, ":playerteam", ":player"),
-         (agent_get_horse, ":use_horse", ":player"),  # If the player spawns with a horse, the bodyguard will too.
+        # Get player info
+        (get_player_agent_no, ":player"),
+        (agent_get_team, ":playerteam", ":player"),
+        (agent_get_horse, ":use_horse", ":player"),  # If the player spawns with a horse, the bodyguard will too.
 
-         # Prepare Scene/Mission Template
-         (assign, ":entry_point", 0),
-         (assign, ":mission_tpl", 0),
-         (try_begin),
-         (party_slot_eq, "$current_town", slot_party_type, spt_village),
-         (assign, ":entry_point", 11),  # Village Elder's Entry
-         (assign, ":mission_tpl", "mt_village_center"),
-         (else_try),
-         (this_or_next | eq, "$talk_context", tc_prison_break),
-         (this_or_next | eq, "$talk_context", tc_escape),
-         (eq, "$talk_context", tc_town_talk),
-         (assign, ":entry_point", 24),  # Prison Guard's Entry
-         (try_begin),
-         (party_slot_eq, "$current_town", slot_party_type, spt_castle),
-         (assign, ":mission_tpl", "mt_castle_visit"),
-         (else_try),
-         (assign, ":mission_tpl", "mt_town_center"),
-         (try_end),
-         (else_try),
-         (eq, "$talk_context", tc_tavern_talk),
-         (assign, ":entry_point", 17),  # First NPC Tavern Entry
-         (try_end),
-         (try_begin),
-         (neq, "$talk_context", tc_tavern_talk),
-         (gt, ":use_horse", 0),
-         (mission_tpl_entry_set_override_flags, ":mission_tpl", ":entry_point", 0),
-         (try_end),
-         (store_current_scene, ":cur_scene"),
-         (modify_visitors_at_site, ":cur_scene"),
+        # Prepare Scene/Mission Template
+        (assign, ":entry_point", 0),
+        (assign, ":mission_tpl", 0),
+        (try_begin),
+        (party_slot_eq, "$current_town", slot_party_type, spt_village),
+        (assign, ":entry_point", 11),  # Village Elder's Entry
+        (assign, ":mission_tpl", "mt_village_center"),
+        (else_try),
+        (this_or_next | eq, "$talk_context", tc_prison_break),
+        (this_or_next | eq, "$talk_context", tc_escape),
+        (eq, "$talk_context", tc_town_talk),
+        (assign, ":entry_point", 24),  # Prison Guard's Entry
+        (try_begin),
+        (party_slot_eq, "$current_town", slot_party_type, spt_castle),
+        (assign, ":mission_tpl", "mt_castle_visit"),
+        (else_try),
+        (assign, ":mission_tpl", "mt_town_center"),
+        (try_end),
+        (else_try),
+        (eq, "$talk_context", tc_tavern_talk),
+        (assign, ":entry_point", 17),  # First NPC Tavern Entry
+        (try_end),
+        (try_begin),
+        (neq, "$talk_context", tc_tavern_talk),
+        (gt, ":use_horse", 0),
+        (mission_tpl_entry_set_override_flags, ":mission_tpl", ":entry_point", 0),
+        (try_end),
+        (store_current_scene, ":cur_scene"),
+        (modify_visitors_at_site, ":cur_scene"),
 
-         # Find and Spawn Bodyguards
-         (assign, ":bodyguard_count", 0),
-         (party_get_num_companion_stacks, ":num_of_stacks", "p_main_party"),
-         (try_for_range, ":i", 0, ":num_of_stacks"),
-         (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i"),
-         (neq, ":troop_id", "trp_player"),
-         (troop_is_hero, ":troop_id"),
-         (neg | troop_is_wounded, ":troop_id"),
-         (val_add, ":bodyguard_count", 1),
+        # Find and Spawn Bodyguards
+        (assign, ":bodyguard_count", 0),
+        (party_get_num_companion_stacks, ":num_of_stacks", "p_main_party"),
+        (try_for_range, ":i", 0, ":num_of_stacks"),
+        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i"),
+        (neq, ":troop_id", "trp_player"),
+        (troop_is_hero, ":troop_id"),
+        (neg | troop_is_wounded, ":troop_id"),
+        (val_add, ":bodyguard_count", 1),
 
-         (try_begin),  # For prison-breaks
-         (this_or_next | eq, "$talk_context", tc_escape),
-         (eq, "$talk_context", tc_prison_break),
-         (troop_set_slot, ":troop_id", slot_troop_will_join_prison_break, 1),
-         (try_end),
+        (try_begin),  # For prison-breaks
+        (this_or_next | eq, "$talk_context", tc_escape),
+        (eq, "$talk_context", tc_prison_break),
+        (troop_set_slot, ":troop_id", slot_troop_will_join_prison_break, 1),
+        (try_end),
 
-         (add_visitors_to_current_scene, ":entry_point", ":troop_id", 1),
+        (add_visitors_to_current_scene, ":entry_point", ":troop_id", 1),
 
-         (eq, ":bodyguard_count", ":max_guards"),
-         (assign, ":num_of_stacks", 0),  # Break Loop
-         (try_end),  # Stack Loop
-         (gt, ":bodyguard_count", 0),  # If bodyguards spawned...
-         (set_show_messages, 0),
-         (team_give_order, ":playerteam", 8, mordr_follow),  # Division 8 to avoid potential conflicts
-         (set_show_messages, 1),
-     ]),
+        (eq, ":bodyguard_count", ":max_guards"),
+        (assign, ":num_of_stacks", 0),  # Break Loop
+        (try_end),  # Stack Loop
+        (gt, ":bodyguard_count", 0),  # If bodyguards spawned...
+        (set_show_messages, 0),
+        (team_give_order, ":playerteam", 8, mordr_follow),  # Division 8 to avoid potential conflicts
+        (set_show_messages, 1),
+    ])
 
-    (ti_on_agent_spawn, 0, 0, [],
-     [
-         (store_trigger_param_1, ":agent"),
-         (agent_get_troop_id, ":troop", ":agent"),
-         (neq, ":troop", "trp_player"),
-         (troop_is_hero, ":troop"),
-         (main_party_has_troop, ":troop"),
+bodyguard_trigger_b = (
+    ti_on_agent_spawn, 0, 0, [],
+    [
+        (display_message, "@{!}DEBUG -- bodyguard_trigger_b"),
+        (store_trigger_param_1, ":agent"),
+        (agent_get_troop_id, ":troop", ":agent"),
+        (neq, ":troop", "trp_player"),
+        (troop_is_hero, ":troop"),
+        (main_party_has_troop, ":troop"),
 
-         (get_player_agent_no, ":player"),
-         (agent_get_team, ":playerteam", ":player"),
-         (agent_get_position, pos1, ":player"),
+        (get_player_agent_no, ":player"),
+        (agent_get_team, ":playerteam", ":player"),
+        (agent_get_position, pos1, ":player"),
 
-         (agent_set_team, ":agent", ":playerteam"),
-         (agent_set_division, ":agent", 8),
-         (agent_add_relation_with_agent, ":agent", ":player", 1),
-         (agent_set_is_alarmed, ":agent", 1),
-         (store_random_in_range, ":shift", 1, 3),
-         (val_mul, ":shift", 100),
-         (position_move_y, pos1, ":shift"),
-         (store_random_in_range, ":shift", 1, 3),
-         (store_random_in_range, ":shift_2", 0, 2),
-         (val_mul, ":shift_2", -1),
-         (try_begin),
-         (neq, ":shift_2", 0),
-         (val_mul, ":shift", ":shift_2"),
-         (try_end),
-         (position_move_x, pos1, ":shift"),
-         (agent_set_position, ":agent", pos1),
-     ]),
+        (agent_set_team, ":agent", ":playerteam"),
+        (agent_set_division, ":agent", 8),
+        (agent_add_relation_with_agent, ":agent", ":player", 1),
+        (agent_set_is_alarmed, ":agent", 1),
+        (store_random_in_range, ":shift", 1, 3),
+        (val_mul, ":shift", 100),
+        (position_move_y, pos1, ":shift"),
+        (store_random_in_range, ":shift", 1, 3),
+        (store_random_in_range, ":shift_2", 0, 2),
+        (val_mul, ":shift_2", -1),
+        (try_begin),
+        (neq, ":shift_2", 0),
+        (val_mul, ":shift", ":shift_2"),
+        (try_end),
+        (position_move_x, pos1, ":shift"),
+        (agent_set_position, ":agent", pos1),
+    ])
 
-    (ti_on_agent_killed_or_wounded, 0, 0, [],
-     [
-         (store_trigger_param_1, ":dead_agent"),
+bodyguard_trigger_c = (
+    ti_on_agent_killed_or_wounded, 0, 0, [],
+    [
+        (display_message, "@{!}DEBUG -- bodyguard_trigger_c"),
+        (store_trigger_param_1, ":dead_agent"),
 
-         (agent_get_troop_id, ":troop", ":dead_agent"),
-         (neq, ":troop", "trp_player"),
-         (troop_is_hero, ":troop"),
-         (main_party_has_troop, ":troop"),
-         (party_wound_members, "p_main_party", ":troop", 1),
-     ]),
-]
+        (agent_get_troop_id, ":troop", ":dead_agent"),
+        (neq, ":troop", "trp_player"),
+        (troop_is_hero, ":troop"),
+        (main_party_has_troop, ":troop"),
+        (party_wound_members, "p_main_party", ":troop", 1),
+    ])
+
 
 unarmed_agent_damage = (
   ti_on_agent_hit, 0, 0,
@@ -2314,9 +2318,10 @@ mission_templates = [
      (30,mtef_visitor_source,af_override_horse,0,1,[]),
      (31,mtef_visitor_source,af_override_horse,0,1,[]),
      ],
-     [
+    [
       (1, 0, ti_once, [],
       [
+        (display_message, "@{!}DEBUG -- First trigger in town"),
         (store_current_scene, ":cur_scene"),
         (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
         (try_begin),
@@ -2332,10 +2337,11 @@ mission_templates = [
 
       (ti_before_mission_start, 0, 0, [],
       [
+        (display_message, "@{!}DEBUG -- First trigger in town"),
         (call_script, "script_change_banners_and_chest"),
         (call_script, "script_initialize_tavern_variables"),
       ]),
-      
+
       #SB : minstrels equip instruments
       (ti_on_agent_spawn, 0, 0,
         [
@@ -2610,6 +2616,7 @@ mission_templates = [
 
         (call_script, "script_neutral_behavior_in_fight"),
       ]),
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
     ],
   ),
 
@@ -2680,6 +2687,8 @@ mission_templates = [
     [
       (ti_on_agent_spawn, 0, 0, [],
       [
+        (display_message, "@{!}DEBUG -- First trigger in town"),
+
         (store_trigger_param_1, ":agent_no"),
         
         (try_begin),
@@ -2922,6 +2931,7 @@ mission_templates = [
        (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
      (try_end),
    ]),
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
   ]),
 
   (
@@ -3053,7 +3063,8 @@ mission_templates = [
       (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
    ]),
-    ],
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
+    ] ,
   ),
 
   (
@@ -3125,7 +3136,8 @@ mission_templates = [
          (try_end),
          (finish_mission),
          ]),
-      ],
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
+      ] ,
     ),
 
 
@@ -3164,8 +3176,10 @@ mission_templates = [
            (assign, "$g_train_peasants_against_bandits_training_succeeded", 1),
          (try_end),
          (finish_mission),
-         ]),
-      ],
+         ]
+       ),
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
+      ]
     ),
 
   (
@@ -3386,7 +3400,8 @@ mission_templates = [
         (clear_omitted_keys),
         # (omit_key_once, key_f), #probably prevents accidental chest opens
       ]),
-    ],
+        bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c
+    ]
   ),
 
 
