@@ -2222,6 +2222,11 @@ DPLMC_LORD_RECYCLING_DISABLE           = -1
 DPLMC_LORD_RECYCLING_ENABLE            =  0
 DPLMC_LORD_RECYCLING_FREQUENT          =  1
 
+#For $g_dplmc_hold ground entering battle
+DPLMC_HOLDGROUND_ENTERING_BATTLE_DISABLE           = -1
+DPLMC_HOLDGROUND_ENTERING_BATTLE_ENABLE            =  0
+
+
 #For $g_dplmc_ai_changes
 DPLMC_AI_CHANGES_DISABLE        =  -1
 DPLMC_AI_CHANGES_LOW            =   0

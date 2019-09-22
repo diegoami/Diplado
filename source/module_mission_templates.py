@@ -1495,6 +1495,14 @@ multiplayer_battle_window_opened = (
     ])
 
 
+
+common_hold_ground_in_battle = (0, 0, ti_once, [], [
+
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_team, ":player_team", ":player_agent"),
+    (team_give_order, ":player_team", grc_everyone, mordr_hold)
+ ])
+
 common_battle_mission_start = (
   ti_before_mission_start, 0, 0, [],
   [
@@ -3685,13 +3693,8 @@ mission_templates = [
                            (call_script, "script_init_death_cam"),
                            # (assign, "$g_dplmc_charge_when_dead", 0),
                            ##diplomacy end
-                           ## HOLD COMMAND begin
-                            (get_player_agent_no, ":player_agent"),
-                            (agent_get_team, ":player_team", ":player_agent"),
-                            (team_give_order, ":player_team", grc_everyone, mordr_hold)
-                            ## HOLD COMMAND end
                            ]),
-
+      common_hold_ground_in_battle,
       common_music_situation_update,
       common_battle_check_friendly_kills,
       common_taunting_system,
@@ -3849,12 +3852,7 @@ mission_templates = [
                            (try_end),
                            #SB : deathcam
                            (call_script, "script_init_death_cam"),
-                           (call_script, "script_combat_music_set_situation_with_culture"),
-                           ## HOLD COMMAND begin
-                           (get_player_agent_no, ":player_agent"),
-                           (agent_get_team, ":player_team", ":player_agent"),
-                           (team_give_order, ":player_team", grc_everyone, mordr_hold)
-                           ## HOLD COMMAND end
+                           (call_script, "script_combat_music_set_situation_with_culture")
                            ]),
 
       common_music_situation_update,
@@ -3864,6 +3862,7 @@ mission_templates = [
       call_horse_trigger_1,
       call_horse_trigger_2,
       common_taunting_system,
+      common_hold_ground_in_battle,
 
       (1, 4,
       ##diplomacy begin
@@ -4031,7 +4030,7 @@ mission_templates = [
       # (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
     ]),
-
+      common_hold_ground_in_battle,
       common_battle_inventory,
       common_battle_order_panel,
       common_battle_order_panel_tick
