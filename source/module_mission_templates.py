@@ -1496,8 +1496,7 @@ multiplayer_battle_window_opened = (
 
 
 
-common_hold_ground_in_battle = (0, 0, ti_once, [], [
-
+common_hold_ground_in_battle = (0, 0, ti_once, [(ge, "$g_dplmc_holdground_entering_battle", 1)], [
     (get_player_agent_no, ":player_agent"),
     (agent_get_team, ":player_team", ":player_agent"),
     (team_give_order, ":player_team", grc_everyone, mordr_hold)

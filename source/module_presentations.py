@@ -18119,7 +18119,7 @@ presentations = [
 
 					## VARIABLE VERTICAL POSITIONS AND INCREMENTS
 					# (assign, ":num_options", 15),
-					(assign, ":y_increment", 50),
+					(assign, ":y_increment", 45),
 					(store_mul, ":texts_y", ":y_increment", DPLMC_NUM_PREFERENCE_OPTIONS),
 					(store_sub, ":inputs_y", ":texts_y", 8),
 
@@ -18330,7 +18330,7 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
                     
-						## LORDS RETURNING FROM EXILE
+					# LORDS RETURNING FROM EXILE
 					(create_text_overlay, reg0, "@Lords Returning From Exile:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
 					(overlay_set_position, reg0, pos1),
@@ -18366,8 +18366,9 @@ presentations = [
 #                    (overlay_set_alpha, reg0, 0),
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
-                    
-						## AI CHANGES
+
+
+					## AI CHANGES
 					(create_text_overlay, reg0, "@AI Changes:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
 					(overlay_set_position, reg0, pos1),
@@ -18584,6 +18585,44 @@ presentations = [
 #                    (overlay_set_alpha, reg0, 0),
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
+
+                    # DA: HOLD GROUND WHEN ENTERING BATTLE
+					(create_text_overlay, reg0, "@Hold ground when entering battle:", tf_vertical_align_center),
+					(position_set_y, pos1, ":texts_y"),
+					(overlay_set_position, reg0, pos1),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+					(val_sub, ":texts_y", ":y_increment"),
+					# (assign, "$adv_diplomacy_texts_lords_returning", reg0),
+
+					(create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+					# (create_combo_button_overlay, reg0),
+					# (overlay_add_item, reg0, "str_dplmc_setting_off"),
+					# (overlay_add_item, reg0, "str_dplmc_setting_on"),
+					# (overlay_add_item, reg0, "str_dplmc_setting_freq"),
+					(position_set_x, pos2, 450),
+					(position_set_y, pos2, ":inputs_y"),
+					(overlay_set_position, reg0, pos2),
+					(val_sub, ":inputs_y", ":y_increment"),
+					# (assign, "$g_presentation_obj_admin_panel_4", reg0),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+
+					(try_begin),
+						(eq, "$g_dplmc_holdground_entering_battle", DPLMC_HOLDGROUND_ENTERING_BATTLE_ENABLE),
+						(assign, ":actual_input_value", 1),
+					(else_try),
+						(assign, ":actual_input_value", 0),
+					(try_end),
+					# (overlay_set_val, "$g_presentation_obj_admin_panel_4", ":actual_input_value"),
+					(overlay_set_val, reg0, ":actual_input_value"),
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_position, reg0, pos3),
+                    (overlay_set_size, reg0, pos4),
+#                   (overlay_set_alpha, reg0, 0),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
+
                     
 					(set_container_overlay, -1),
 
@@ -18795,7 +18834,11 @@ presentations = [
                     (else_try), ## CHEATS MENU
                         (troop_slot_eq, "trp_temp_array_b", 11, ":object"),
                         (assign, "$cheat_mode", ":value"),
+                    (else_try), ## HOLD GROUND
+                        (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
+                        (assign, "$g_dplmc_holdground_entering_battle", ":value"),
                     (try_end),
+
                 ]
             ),
 			(ti_on_presentation_mouse_enter_leave, #Mouse-Over Pref-Tips
