@@ -13,3 +13,10 @@ with some fixes, some from the Taleworlds forum
 * Import / Export companions
 * Whistle for your horse (key M)
 * Taunt your opponents, so that they will attack you (key O)
+
+## Credits
+
+Many to keep track of
+
+* the Diplomacy mod maintainers (Waihti, hessuu, fisheye, rubik, jrider, Mjollnir, Akmar Nibelung, Parsifal, Somebody) 
+* and other Taleworlds  forum users: Dj_FRedy, Jinnai, lazeras, Caba`dr, Glabrezu, Efe Karaca
