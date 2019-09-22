@@ -1239,6 +1239,7 @@ g_dplmc_gold_changes
 g_dplmc_cam_activated
 g_dplmc_charge_when_dead
 g_dplmc_lord_recycling
+g_dplmc_holdground_entering_battle
 g_camera_rotate_x
 g_camera_rotate_y
 g_camera_rotate_z

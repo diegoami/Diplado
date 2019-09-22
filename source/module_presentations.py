@@ -18676,7 +18676,8 @@ presentations = [
                         (assign, "$sneaked_into_town", disguise_none), #associated with above
                         (assign, "$g_dplmc_charge_when_dead", 1),
                         (assign, "$g_dplmc_terrain_advantage", DPLMC_TERRAIN_ADVANTAGE_ENABLE),
-                        (assign, "$g_dplmc_lord_recycling", DPLMC_LORD_RECYCLING_ENABLE),
+                        (assign, "$g_dplmc_holdground_entering_battle", DPLMC_HOLDGROUND_ENTERING_BATTLE_ENABLE),
+                        (assign, "$g_dplmc_hold", DPLMC_LORD_RECYCLING_ENABLE),
                         (assign, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
                         (assign, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
                         (assign, "$g_disable_condescending_comments", 0),
