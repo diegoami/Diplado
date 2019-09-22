@@ -20,3 +20,8 @@ Many to keep track of
 
 * the Diplomacy mod maintainers (Waihti, hessuu, fisheye, rubik, jrider, Mjollnir, Akmar Nibelung, Parsifal, Somebody) 
 * and other Taleworlds  forum users: Dj_FRedy, Jinnai, lazeras, Caba`dr, Glabrezu, Efe Karaca
+
+
+## On Nexus
+
+A compiled version of this mod can be found on Nexus: https://www.nexusmods.com/mbwarband/mods/6309
