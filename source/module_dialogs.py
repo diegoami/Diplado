@@ -8651,7 +8651,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (store_num_regular_prisoners,reg0, "p_main_party"), #does this skip over heroes?
 (store_sub, reg1, ":num_prisoners", reg0),
 ],
-"Of course, {s0}. There are {reg0} prisoners left and {reg1} nobles incarcerated}.", "dplmc_constable_garrison_prisoner_sell",
+"Of course, {s0}. There are {reg0} prisoners left and {reg1} nobles incarcerated.", "dplmc_constable_garrison_prisoner_sell",
 [(change_screen_trade_prisoners)]],
 [anyone|plyr,"dplmc_constable_garrison_prisoner_sell", [
 # (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
