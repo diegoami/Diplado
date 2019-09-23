@@ -8631,7 +8631,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 ##SB : convenience feature of selling prisoners in garrison
 [anyone|plyr,"dplmc_constable_talk",
-[(store_num_regular_prisoners,":prisoners", "$current_town"),(ge,":prisoners",0)],
+[(party_get_num_prisoners, ":town_prisoners", "$current_town"),(ge,":town_prisoners",1)],
 "We have prisoners in the dungeon -- let's have a look over them.", "dplmc_constable_garrison_prisoner_manage",[
 #move prisoner
 (party_clear, "p_temp_party_2"),
@@ -8651,7 +8651,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (store_num_regular_prisoners,reg0, "p_main_party"), #does this skip over heroes?
 (store_sub, reg1, ":num_prisoners", reg0),
 ],
-"Of course, {s0}. There are {reg0} prisoners left and {reg1} nobles incarcerated}.", "dplmc_constable_garrison_prisoner_sell",
+"Of course, {s0}. There are {reg0} prisoners left and {reg1} nobles incarcerated.", "dplmc_constable_garrison_prisoner_sell",
 [(change_screen_trade_prisoners)]],
 [anyone|plyr,"dplmc_constable_garrison_prisoner_sell", [
 # (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
