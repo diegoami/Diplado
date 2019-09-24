@@ -26910,6 +26910,7 @@ scripts = [
   ## Upgrade equipment (by quality) and hire mercenaries (if Martial personality)
   ("troop_does_business_in_center",
   [
+
     (store_script_param, ":troop_no", 1),
     (store_script_param, ":center_no", 2),
 	##diplomacy start+
@@ -27233,10 +27234,9 @@ scripts = [
         (str_store_troop_name_link, s1, ":troop_no"),
         (str_store_party_name_link, s2, ":center_no"),
         (assign, reg2, ":troop_wealth"),
-        (display_message, "@{s1} tries to assign class in {s2}"),
         (troop_get_class, ":class_no", ":troop_no"),
         (assign, reg3, ":class_no"),
-        (display_message, "@{s1} has class {reg3}"),
+
         # (is_between, ":class_no", grc_infantry, grc_heroes),
 
         (try_begin),
@@ -27263,13 +27263,10 @@ scripts = [
             (val_sub, ":lord_group", 1),
             (assign, reg0, ":lord_group"),
             (str_store_troop_name_link, s1, ":troop_no"),
-            (display_message, "@{s1} tries to assign class {reg0}"),
             (troop_set_class, ":troop_no", ":lord_group"),
         (try_end),
         (troop_get_class, ":class_no", ":troop_no"),
         (assign, reg0, ":class_no"),
-
-         (display_message, "@Troop {s1} has now class {reg0}"),
     (try_end),
 
     # SB : set wealth after tax and consumption
