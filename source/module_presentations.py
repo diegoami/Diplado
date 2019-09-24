@@ -18783,7 +18783,7 @@ presentations = [
 						# (else_try),
 							# (assign, "$adv_diplomacy_var_horse_speed", 0),
 						# (try_end),
-					(else_try), ## HORSE SPEED
+					(else_try), ## HORSE CULLING
 						(troop_slot_eq, "trp_temp_array_b", 1, ":object"),
 						(assign, "$g_horses_are_avaliable", ":value"),
 						# (try_begin),
@@ -18866,7 +18866,7 @@ presentations = [
                         (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
                         (assign, "$g_dplmc_holdground_entering_battle", ":value"),
 
-                    (else_try), ## HORSE SPEED
+                    (else_try), ## GROUP FOR LORDS
 						(troop_slot_eq, "trp_temp_array_b", 13, ":object"),
 						(assign, "$g_group_for_lords", ":value"),
                     (try_end),
