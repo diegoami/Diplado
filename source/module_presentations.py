@@ -18623,6 +18623,33 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
 
+
+                    ##DA  GROUP FOR LORDS
+                    (create_text_overlay, reg0, "@Group for lords:", tf_vertical_align_center),
+                    (position_set_y, pos1, ":texts_y"),
+                    (overlay_set_position, reg0, pos1),
+                    (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+
+                    (create_number_box_overlay, reg0, 0, 31),
+                    (position_set_y, pos2, ":inputs_y"),
+                    (overlay_set_position, reg0, pos2),
+                    (try_begin),
+                      (neg|is_between, "$g_group_for_lords", 0, 9),
+                      (assign, "$g_group_for_lords", 0),
+                    (try_end),
+                    (overlay_set_val, reg0, "$g_group_for_lords"),
+                    (val_sub, ":inputs_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_castle1"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_size, reg0, pos4),
+                    (overlay_set_position, reg0, pos3),
+#                    (overlay_set_alpha, reg0, 0),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
                     
 					(set_container_overlay, -1),
 
@@ -18716,6 +18743,7 @@ presentations = [
                         (assign, "$g_dplmc_charge_when_dead", 1),
                         (assign, "$g_dplmc_terrain_advantage", DPLMC_TERRAIN_ADVANTAGE_ENABLE),
                         (assign, "$g_dplmc_holdground_entering_battle", DPLMC_HOLDGROUND_ENTERING_BATTLE_ENABLE),
+                        (assign, "$g_dplmc_group_for_lords", 0),
                         (assign, "$g_dplmc_hold", DPLMC_LORD_RECYCLING_ENABLE),
                         (assign, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
                         (assign, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
@@ -18837,6 +18865,10 @@ presentations = [
                     (else_try), ## HOLD GROUND
                         (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
                         (assign, "$g_dplmc_holdground_entering_battle", ":value"),
+
+                    (else_try), ## HORSE SPEED
+						(troop_slot_eq, "trp_temp_array_b", 13, ":object"),
+						(assign, "$g_group_for_lords", ":value"),
                     (try_end),
 
                 ]
