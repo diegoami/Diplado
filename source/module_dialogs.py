@@ -8631,6 +8631,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 ##SB : convenience feature of selling prisoners in garrison
 [anyone|plyr,"dplmc_constable_talk",
+#[(store_num_regular_prisoners,":prisoners", "$current_town"),(ge,":prisoners",1)], #DA: for some reason it always returns the number of prisoners in the player's party
 [(party_get_num_prisoners, ":town_prisoners", "$current_town"),(ge,":town_prisoners",1)],
 "We have prisoners in the dungeon -- let's have a look over them.", "dplmc_constable_garrison_prisoner_manage",[
 #move prisoner
