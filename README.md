@@ -2,7 +2,8 @@
 
 Forked from 
 [1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
-Note that the base version has not been released from the author yet (Somebody), so it may contain bugs. Feel free to add issues and code changes proposals.
+Note that the base version has not been released from the author yet (Somebody). Feel free to add issues.
+
 Some additions
 
 * Can spar with your army in the arena
