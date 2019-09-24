@@ -5,7 +5,6 @@ Forked from
 
 with some fixes, some from the Taleworlds forum
 
-* Lords return more reliably from exile
 * Can spar with your army in the arena
 * Prisoners in your party do not disappear while selling those in your garrison to the constable
 * No crazy charge in battle of your party (they await your orders)
@@ -28,5 +27,8 @@ A compiled version of this mod can be found on Nexus: https://www.nexusmods.com/
 
 ## Branching Policy
 
-On Master there should be changes which do not break compatibility with 4.3+ Stem for 1.174
-On Develop and possibly other release branches should go breaking changes, to be named differently (Diplomacy 5.0 if I can pull it off, or some other name)
+On **master** there should be changes which do not break compatibility with 4.3+ Steam for 1.174.
+
+The branch **somebody_ver** at the moment tracks the official version of this mod, maintained by Somebody.
+
+On **develop** and possibly other release branches there might be changes that will break downward compatibility with the official version. 
