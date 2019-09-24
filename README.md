@@ -25,3 +25,8 @@ Many to keep track of
 ## On Nexus
 
 A compiled version of this mod can be found on Nexus: https://www.nexusmods.com/mbwarband/mods/6309
+
+## Branching Policy
+
+On Master there should be changes which do not break compatibility with 4.3+ Stem for 1.174
+On Develop and possibly other release branches should go breaking changes, to be named differently (Diplomacy 5.0 if I can pull it off, or some other name)
