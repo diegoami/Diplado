@@ -22,10 +22,6 @@ Many to keep track of
 * and other Taleworlds  forum users: Dj_FRedy, Jinnai, lazeras, Caba`dr, Glabrezu, Efe Karaca
 
 
-## On Nexus
-
-A compiled version of this mod can be found on Nexus: https://www.nexusmods.com/mbwarband/mods/6309
-
 ## Branching Policy
 
 On **master** there should be changes which do not break compatibility with 4.3+ Steam for 1.174.
