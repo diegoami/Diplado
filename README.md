@@ -1,4 +1,6 @@
-# DIPLADO (DIPLomacy desperADO) - YET ANOTHER DIPLOMACY CLONE
+# DIPLADO (DIPLomacy desperADO) 
+
+## YET ANOTHER DIPLOMACY CLONE
 
 Forked from 
 [1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
