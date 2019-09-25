@@ -1,5 +1,11 @@
 # DIPLADO (DIPLomacy desperADO) 
 
+## Binaries
+
+Under **https://github.com/diegoami/Diplado/releases/**.
+
+Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) 
+
 ## YET ANOTHER DIPLOMACY 4.3 CLONE
 
 Forked from 
@@ -21,14 +27,7 @@ Also on the **development** branch
 * Option to turn the hold ground command on or off
 * Option to assign lords to a default group
 
-## Binaries
-
-Under **https://github.com/diegoami/Diplado/releases/**.
-
-
 **master** releases' save files are backwardly compatible, but **develop** releases may contain more interesting features.
-
-Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ ) 
 
 ## Credits
 
