@@ -15,7 +15,6 @@ Note that the base version has not been released from the author yet (Somebody).
 Some additions
 
 * Can spar with your army in the arena
-* Prisoners in your party do not disappear while selling those in your garrison to the constable
 * No crazy charge in battle of your party (they await your orders)
 * Body guards
 * Import / Export companions
