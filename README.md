@@ -45,9 +45,9 @@ On **develop** and possibly other release branches there might be changes that w
 
 ## COMPILING
 
+* Install a release from **https://github.com/diegoami/Diplado/releases/** as described above.
 * Set up Python 2.7 
-* Make a copy of your Native Module directory
-* Edit `source/module_info.py` to point of the directory of your new module
+* Edit `source/module_info.py` to point to the directory where you installed the module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
 
