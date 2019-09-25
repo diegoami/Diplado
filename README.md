@@ -19,7 +19,7 @@ Some additions
 Also on the **development** branch
 
 * Option to turn the hold ground command on or off
-* Option to assign lord to a default group
+* Option to assign lords to a default group
 
 ## Binaries
 
