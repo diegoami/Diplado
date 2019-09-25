@@ -2,8 +2,7 @@
 
 ## Installation
 
-Unzip a binary release from **https://github.com/diegoami/Diplado/releases/**.
- into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
+Unzip a binary release from **https://github.com/diegoami/Diplado/releases/** into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
 
 ## YET ANOTHER DIPLOMACY 4.3 CLONE
 
