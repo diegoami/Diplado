@@ -23,7 +23,9 @@ Also on the **development** branch
 
 ## Binaries
 
-Under **https://github.com/diegoami/Diplado/releases/**
+Under **https://github.com/diegoami/Diplado/releases/**.
+
+
 **master** releases' save files are backwardly compatible, but **develop** releases may contain more interesting features.
 
 Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ ) 
@@ -40,7 +42,7 @@ Many to keep track of
 
 On **master** there should be changes which do not break compatibility with 4.3+ Steam for 1.174.
 
-The branch **somebody_ver** at the moment tracks the official version of this mod, maintained by Somebody.
+The branch **somebody_ver** at the moment tracks the base version of this mod, maintained by Somebody.
 
 On **develop** and possibly other release branches there might be changes that will break downward compatibility with the official version. 
 
