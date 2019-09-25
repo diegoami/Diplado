@@ -55,4 +55,4 @@ On **develop** and possibly other release branches there might be changes that w
 
 ## LEGACY
 
-This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed, as the new version by Somebody on Steam contains fixes and improvements I cannot live without.
+This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed further, as the new version by Somebody on Steam replaces that.
