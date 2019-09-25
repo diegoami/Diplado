@@ -1,4 +1,4 @@
-# DIPLOMACY 4.3+ STEAM ENHANCED FOR MOUNT AND BLADE 1.174  (FORK)
+# DIPLADO (DIPLomacy desperADO) - YET ANOTHER DIPLOMACY CLONE
 
 Forked from 
 [1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
@@ -19,7 +19,12 @@ Also on the **development** branch
 * Option to turn the hold ground command on or off
 * Option to assign lord to a default group
 
+## Binaries
 
+Under **https://github.com/diegoami/Diplado/releases/**
+**master** releases' save files are backwardly compatible, but **develop** releases may contain more interesting features.
+
+Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ ) 
 
 ## Credits
 
@@ -40,10 +45,8 @@ On **develop** and possibly other release branches there might be changes that w
 ## COMPILING
 
 * Set up Python 2.7 
-* Edit `source/module_info.py` to point of the directory of your module
+* Make a copy of your Native Module directory
+* Edit `source/module_info.py` to point of the directory of your new module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
 
-## Binary 
-
-Binary not available yet, as the original mod has not been released by the author, therefore it is
