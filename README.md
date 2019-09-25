@@ -1,5 +1,12 @@
 # DIPLADO (DIPLomacy desperADO) 
 
+## Installation
+
+Unzip a binary release from **https://github.com/diegoami/Diplado/releases/**.
+ into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
+
+Alternatively, as described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplomacy. Extract the files from this repo into that directory and restart the game launcher.
+
 ## YET ANOTHER DIPLOMACY 4.3 CLONE
 
 Forked from 
@@ -9,7 +16,6 @@ Note that the base version has not been released from the author yet (Somebody).
 Some additions
 
 * Can spar with your army in the arena
-* Prisoners in your party do not disappear while selling those in your garrison to the constable
 * No crazy charge in battle of your party (they await your orders)
 * Body guards
 * Import / Export companions
@@ -19,16 +25,9 @@ Some additions
 Also on the **development** branch
 
 * Option to turn the hold ground command on or off
-* Option to assign lord to a default group
-
-## Binaries
-
-Under **https://github.com/diegoami/Diplado/releases/**.
-
+* Option to assign lords to a default group
 
 **master** releases' save files are backwardly compatible, but **develop** releases may contain more interesting features.
-
-Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ ) 
 
 ## Credits
 
@@ -53,3 +52,7 @@ On **develop** and possibly other release branches there might be changes that w
 * Edit `source/module_info.py` to point of the directory of your new module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
+
+## LEGACY
+
+This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed further, as the new version by Somebody on Steam replaces that.
