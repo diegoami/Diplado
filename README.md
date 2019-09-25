@@ -1,10 +1,9 @@
 # DIPLADO (DIPLomacy desperADO) 
 
-## Binaries
+## Installation
 
-Under **https://github.com/diegoami/Diplado/releases/**.
-
-Unzip a binary release in a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
+Unzip a binary release from **https://github.com/diegoami/Diplado/releases/**.
+ into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
 
 Alternatively, as described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplomacy. Extract the files from this repo into that directory and restart the game launcher.
 
