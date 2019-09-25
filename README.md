@@ -53,3 +53,7 @@ On **develop** and possibly other release branches there might be changes that w
 * Edit `source/module_info.py` to point of the directory of your new module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
+
+## LEGACY
+
+This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed, as the new version by Somebody on Steam contains fixes and improvements I cannot live without.
