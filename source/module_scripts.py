@@ -27226,10 +27226,10 @@ scripts = [
         (try_end),
       (try_end),
       ##upgrade end
-      #re-classify lords here - assume ranged weapon equipped -> archer, horse -> cav otherwise go back to inf
+
 
     (try_end),
-    # DA changed routine to allow to set lords in a custom group
+    #re-classify lords here - assume ranged weapon equipped -> archer, horse -> cav otherwise go back to inf
     (try_begin), #if it's one of the 3 origial classes, since companions-as-lord can have custom grouping we want to keep
         (str_store_troop_name_link, s1, ":troop_no"),
         (str_store_party_name_link, s2, ":center_no"),
@@ -27237,11 +27237,12 @@ scripts = [
         (troop_get_class, ":class_no", ":troop_no"),
         (assign, reg3, ":class_no"),
 
-        # (is_between, ":class_no", grc_infantry, grc_heroes),
+
 
         (try_begin),
             (eq, "$g_group_for_lords", 0), #default grouping
-            (eq, ":class_no", grc_infantry), #default grouping
+            (this_or_next|eq, ":class_no", grc_infantry), #DA - change class_no if infantry or a custom group
+            (gt, ":class_no", grc_cavalry),
             (try_begin),
               (troop_get_inventory_slot, ":item_id", ":troop_no", ek_horse),
               (gt, ":item_id", -1),
@@ -27259,14 +27260,20 @@ scripts = [
               (try_end),
             (try_end),
         (else_try),
+            # DA allow to set lords in a custom group
+            (gt, "$g_group_for_lords", 0),
             (assign, ":lord_group", "$g_group_for_lords"),
             (val_sub, ":lord_group", 1),
             (assign, reg0, ":lord_group"),
             (str_store_troop_name_link, s1, ":troop_no"),
             (troop_set_class, ":troop_no", ":lord_group"),
+            # DA
         (try_end),
+        (eq, "$cheat_mode", 2),
         (troop_get_class, ":class_no", ":troop_no"),
         (assign, reg0, ":class_no"),
+        (str_store_troop_name_link, s1, ":troop_no"),
+        (display_message, "@Assigned class {reg0} to {s1}"),
     (try_end),
 
     # SB : set wealth after tax and consumption
