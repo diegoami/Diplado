@@ -4,9 +4,9 @@
 
 As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplado or as you wish. 
 
-Then download the content from either the branch **master** or **develop** and copy it into said directory.
+Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory
 
-**master** branches contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version. 
+**master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
 
 That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
