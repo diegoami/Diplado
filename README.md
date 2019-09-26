@@ -2,10 +2,13 @@
 
 ## Installation
 
-Unzip a binary release from **https://github.com/diegoami/Diplado/releases/**.
- into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
+As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplado or as you wish. 
 
-Alternatively, as described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplomacy. Extract the files from this repo into that directory and restart the game launcher.
+Then extract one of the latest release files from **https://github.com/diegoami/Diplado/releases/** into said directory.
+
+**master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version. 
+
+That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
 ## YET ANOTHER DIPLOMACY 4.3 CLONE
 
@@ -37,19 +40,11 @@ Many to keep track of
 * and other Taleworlds  forum users: Dj_FRedy, Jinnai, lazeras, Caba`dr, Glabrezu, Efe Karaca
 
 
-## Branching Policy
-
-On **master** there should be changes which do not break compatibility with 4.3+ Steam for 1.174.
-
-The branch **somebody_ver** at the moment tracks the base version of this mod, maintained by Somebody.
-
-On **develop** and possibly other release branches there might be changes that will break downward compatibility with the official version. 
-
 ## COMPILING
 
-* Set up Python 2.7 
-* Make a copy of your Native Module directory
-* Edit `source/module_info.py` to point of the directory of your new module
+1. Install a release from **https://github.com/diegoami/Diplado/releases/** as described above.
+2. Set up Python 2.7 
+* (Optional) Edit `source/module_info.py` to point to the directory where you installed the module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
 
