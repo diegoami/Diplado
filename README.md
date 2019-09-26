@@ -2,10 +2,7 @@
 
 ## Installation
 
-Unzip a binary release from **https://github.com/diegoami/Diplado/releases/**.
- into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
-
-Alternatively, as described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplomacy. Extract the files from this repo into that directory and restart the game launcher.
+Unzip a binary release from **https://github.com/diegoami/Diplado/releases/** into a new directory in the Modules directory of your Warband installation (e.g. _C:/Program Files (x86)/Steam/steamapps/common/MountBlade Warband/Modules/Diplado/_ on Windows on Steam) .
 
 ## YET ANOTHER DIPLOMACY 4.3 CLONE
 
@@ -47,9 +44,9 @@ On **develop** and possibly other release branches there might be changes that w
 
 ## COMPILING
 
+* Install a release from **https://github.com/diegoami/Diplado/releases/** as described above.
 * Set up Python 2.7 
-* Make a copy of your Native Module directory
-* Edit `source/module_info.py` to point of the directory of your new module
+* Edit `source/module_info.py` to point to the directory where you installed the module
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
 
