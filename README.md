@@ -1,5 +1,15 @@
 # DIPLADO (DIPLomacy desperADO) 
 
+YET ANOTHER DIPLOMACY 4.3 CLONE
+
+## SOURCE
+
+Forked from 
+[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
+Note that the base version has not been released from the author yet (Somebody). 
+
+__There might be serious issues in this mod, so use at your own risk__
+
 ## Installation
 
 As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplado or as you wish. 
@@ -10,11 +20,12 @@ Then download one of the latest release from **https://github.com/diegoami/Dipla
 
 That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
-## YET ANOTHER DIPLOMACY 4.3 CLONE
+## KNOWN ISSUES
 
-Forked from 
-[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
-Note that the base version has not been released from the author yet (Somebody). 
+* Multiplayer seems to be broken in many places
+
+
+## FEATURES
 
 Some additions
 
@@ -48,6 +59,4 @@ Many to keep track of
 * Edit `build_module_lav.bat` to point to the location of your Python 2
 * Execute `build_module_lav.bat`
 
-## LEGACY
 
-This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed further, as the new version by Somebody on Steam replaces that.
