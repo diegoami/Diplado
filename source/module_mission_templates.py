@@ -5137,38 +5137,40 @@ mission_templates = [
         ]),
         
         #SB : wound troops and heroes
-      (ti_on_agent_killed_or_wounded, 0, 0, [
-        (eq, "$g_mt_mode", ctm_melee),
-        ],
-       [
-       (store_trigger_param_1, ":agent_no"),
-       (store_trigger_param_2, ":killer"),
-       (agent_get_troop_id, ":troop_no", ":agent_no"),
-       #yes, there's a chance that the highest skill troop is the one getting injured, but w/e
-       (party_get_skill_level, ":first_aid", "p_main_party", "skl_first_aid"),
-       (val_mul, ":first_aid", 5), #as per skill description
-       (val_add, ":first_aid", 100),
-       (try_begin),
-         (troop_is_hero, ":troop_no"),
-         (store_troop_health, ":health", ":troop_no", 1), #this is already deducted
-         (val_mul, ":health", ":first_aid"),
-         (val_div, ":health", 100),
-         (troop_set_health, ":troop_no", ":health", 1),
-       (else_try), #regular troops
-         # (val_add, ":first_aid", 100),
-         (store_random_in_range, ":random_no", 0, ":first_aid"),
-         (lt, ":random_no", 25),
-         (party_wound_members, "p_main_party", ":troop_no", 1),
-       (try_end),
-       
-       (try_begin),
-         (get_player_agent_no, ":player_agent"),
-         (store_trigger_param_2, ":killer"),
-         (eq, ":player_agent", ":killer"),
-         (call_script, "script_agents_cheer_during_training"),
-       (try_end),
-      
-       ]),
+        #DA : commented out, as this is gameplay changing and does not add to the experience. Maybe later on add as an option
+        # (ti_on_agent_killed_or_wounded, 0, 0, [
+        #   (eq, "$g_mt_mode", ctm_melee),
+        #   ],
+        #  [
+        #  (store_trigger_param_1, ":agent_no"),
+        #  (store_trigger_param_2, ":killer"),
+        #  (agent_get_troop_id, ":troop_no", ":agent_no"),
+        #  #yes, there's a chance that the highest skill troop is the one getting injured, but w/e
+        #  (party_get_skill_level, ":first_aid", "p_main_party", "skl_first_aid"),
+        #  (val_mul, ":first_aid", 5), #as per skill description
+        #  (val_add, ":first_aid", 100),
+        #  (try_begin),
+        #    (troop_is_hero, ":troop_no"),
+        #    (store_troop_health, ":health", ":troop_no", 1), #this is already deducted
+        #    (val_mul, ":health", ":first_aid"),
+        #    (val_div, ":health", 100),
+        #    (troop_set_health, ":troop_no", ":health", 1),
+        #  (else_try), #regular troops
+        #    # (val_add, ":first_aid", 100),
+        #    (store_random_in_range, ":random_no", 0, ":first_aid"),
+        #    (lt, ":random_no", 25),
+        #    (party_wound_members, "p_main_party", ":troop_no", 1),
+        #  (try_end),
+        #
+        #  (try_begin),
+        #    (get_player_agent_no, ":player_agent"),
+        #    (store_trigger_param_2, ":killer"),
+        #    (eq, ":player_agent", ":killer"),
+        #    (call_script, "script_agents_cheer_during_training"),
+        #  (try_end),
+        #
+        #  ]),
+
       (ti_before_mission_start, 0, 0, [],
        [
          (assign, "$g_last_destroyed_gourds", 0),
@@ -5182,7 +5184,7 @@ mission_templates = [
          (eq,":answer",0),
          (assign, "$g_training_ground_training_success_ratio", 0),
          
-         (call_script, "script_troop_set_training_health_from_agent"), #SB : store health
+         #(call_script, "script_troop_set_training_health_from_agent"), #SB : store health
          (jump_to_menu, "mnu_training_ground_training_result"),
          (finish_mission),
          ]),
