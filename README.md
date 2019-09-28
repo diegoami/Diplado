@@ -55,8 +55,7 @@ Many to keep track of
 
 1. Install a release from **https://github.com/diegoami/Diplado/releases/** as described above.
 2. Set up Python 2.7 
-* (Optional) Edit `source/module_info.py` to point to the directory where you installed the module
-* Edit `build_module_lav.bat` to point to the location of your Python 2
-* Execute `build_module_lav.bat`
-
+* Edit `source/build_module_lav.bat` to point to the location of your Python 2
+* Execute `source/build_module_lav.bat`
+* Copy the full content of the directory into the Mod's module directorzy
 
