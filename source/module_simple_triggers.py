@@ -6098,7 +6098,6 @@ simple_triggers = [
               (call_script, "script_party_prisoners_add_party_prisoners", ":target_party", ":party_no"),
               (call_script, "script_party_remove_all_prisoners", ":party_no"),
               (call_script, "script_party_add_party", ":target_party", ":party_no"),
-              (display_message, "@DEBUG: removing party {reg1} "),
               (remove_party, ":party_no"),
             (try_end),
           (else_try),
