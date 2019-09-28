@@ -1,6 +1,6 @@
 # DIPLADO (DIPLomacy desperADO) 
 
-YET ANOTHER DIPLOMACY 4.3 CLONE
+Yet another clone of the Diplomacy Mod for Mount and Blade - Warband.
 
 ## SOURCE
 
