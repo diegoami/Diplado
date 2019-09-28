@@ -1,5 +1,15 @@
 # DIPLADO (DIPLomacy desperADO) 
 
+YET ANOTHER DIPLOMACY 4.3 CLONE
+
+## SOURCE
+
+Forked from 
+[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
+Note that the base version has not been released from the author yet (Somebody). 
+
+__There might be serious issues in this mod, so use at your own risk__
+
 ## Installation
 
 As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplado or as you wish. 
@@ -10,13 +20,22 @@ Then download one of the latest release from **https://github.com/diegoami/Dipla
 
 That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
-## YET ANOTHER DIPLOMACY 4.3 CLONE
+## KNOWN ISSUES
 
-Forked from 
-[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
-Note that the base version has not been released from the author yet (Somebody). 
+* Multiplayer seems to be broken in many places
 
-Some additions
+
+
+
+## FIXES / FEATURES
+
+Some fixes:
+
+* Lords return reliably from exiles
+* Constable's menu to sell prisoners from the garrison is shown when there are prisoners in the dungeon
+* Patrols' prisoners are put in the dungeon and not into the garrison
+
+Some additions:
 
 * Can spar with your army in the arena
 * No crazy charge in battle of your party (they await your orders)
@@ -24,6 +43,10 @@ Some additions
 * Import / Export companions
 * Whistle for your horse (key M)
 * Taunt your opponents, so that they will attack you (key O)
+
+Features removed
+
+* Training on the training ground does not cause injuries
 
 Also on the **development** branch
 
@@ -44,10 +67,7 @@ Many to keep track of
 
 1. Install a release from **https://github.com/diegoami/Diplado/releases/** as described above.
 2. Set up Python 2.7 
-* (Optional) Edit `source/module_info.py` to point to the directory where you installed the module
-* Edit `build_module_lav.bat` to point to the location of your Python 2
-* Execute `build_module_lav.bat`
+* Edit `source/build_module_lav.bat` to point to the location of your Python 2
+* Execute `source/build_module_lav.bat`
+* Copy the full content of the directory into the Mod's module directorzy
 
-## LEGACY
-
-This mod replaces https://github.com/diegoami/diplomacy-plus-for-warband, which is not going to be developed further, as the new version by Somebody on Steam replaces that.
