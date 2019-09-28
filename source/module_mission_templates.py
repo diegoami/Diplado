@@ -5078,21 +5078,19 @@ mission_templates = [
     "training_ground_training", mtf_arena_fight|mtf_no_blood, -1,
     "Training.",
     [
-
-        (0, mtef_visitor_source | mtef_team_0, af_override_everything, aif_start_alarmed, 1, [itm_practice_staff]),
-        (1, mtef_visitor_source | mtef_team_1, af_override_everything, aif_start_alarmed, 1, [itm_practice_staff]),
-        (2, mtef_visitor_source | mtef_team_1, af_override_everything, aif_start_alarmed, 1, [itm_practice_staff]),
-        (3, mtef_visitor_source | mtef_team_1, af_override_everything, aif_start_alarmed, 1, [itm_practice_staff]),
-        (4, mtef_visitor_source | mtef_team_1, af_override_everything, aif_start_alarmed, 1, [itm_practice_staff]),
-        (8, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (9, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (10, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (11, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (12, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (13, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (14, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-        (15, mtef_visitor_source, af_override_weapons | af_override_horse | af_override_head, 0, 1, []),
-
+      (0,mtef_visitor_source|mtef_team_0,af_override_everything,aif_start_alarmed,1,[itm_practice_staff]),
+      (1,mtef_visitor_source|mtef_team_1,af_override_everything,aif_start_alarmed,1,[itm_practice_staff]),
+      (2,mtef_visitor_source|mtef_team_1,af_override_everything,aif_start_alarmed,1,[itm_practice_staff]),
+      (3,mtef_visitor_source|mtef_team_1,af_override_everything,aif_start_alarmed,1,[itm_practice_staff]),
+      (4,mtef_visitor_source|mtef_team_1,af_override_everything,aif_start_alarmed,1,[itm_practice_staff]),
+      (8,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (9,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (10,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (11,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (12,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (13,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (14,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
+      (15,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
     ],
     [
     
@@ -5136,7 +5134,40 @@ mission_templates = [
             #assign other cheer action when player kills in ctm_melee or hits gourds
         ]),
         
-
+        #SB : wound troops and heroes
+        #DA : commented out, as this is gameplay changing and does not add to the experience. Maybe later on add as an option
+        # (ti_on_agent_killed_or_wounded, 0, 0, [
+        #   (eq, "$g_mt_mode", ctm_melee),
+        #   ],
+        #  [
+        #  (store_trigger_param_1, ":agent_no"),
+        #  (store_trigger_param_2, ":killer"),
+        #  (agent_get_troop_id, ":troop_no", ":agent_no"),
+        #  #yes, there's a chance that the highest skill troop is the one getting injured, but w/e
+        #  (party_get_skill_level, ":first_aid", "p_main_party", "skl_first_aid"),
+        #  (val_mul, ":first_aid", 5), #as per skill description
+        #  (val_add, ":first_aid", 100),
+        #  (try_begin),
+        #    (troop_is_hero, ":troop_no"),
+        #    (store_troop_health, ":health", ":troop_no", 1), #this is already deducted
+        #    (val_mul, ":health", ":first_aid"),
+        #    (val_div, ":health", 100),
+        #    (troop_set_health, ":troop_no", ":health", 1),
+        #  (else_try), #regular troops
+        #    # (val_add, ":first_aid", 100),
+        #    (store_random_in_range, ":random_no", 0, ":first_aid"),
+        #    (lt, ":random_no", 25),
+        #    (party_wound_members, "p_main_party", ":troop_no", 1),
+        #  (try_end),
+        #
+        #  (try_begin),
+        #    (get_player_agent_no, ":player_agent"),
+        #    (store_trigger_param_2, ":killer"),
+        #    (eq, ":player_agent", ":killer"),
+        #    (call_script, "script_agents_cheer_during_training"),
+        #  (try_end),
+        #
+        #  ]),
       (ti_before_mission_start, 0, 0, [],
        [
          (assign, "$g_last_destroyed_gourds", 0),
