@@ -6089,18 +6089,16 @@ simple_triggers = [
           (gt, ":target_party", 0),
           (store_distance_to_party_from_party, ":distance_to_target", ":party_no", ":target_party"),
           (le, ":distance_to_target", 5),
-          (try_begin), #SB : drop off prisoners
-            (le, ":distance_to_target", 3),
-            (is_between, ":target_party", walled_centers_begin, walled_centers_end),
-            (call_script, "script_party_add_party_prisoners", ":target_party", ":party_no"),
-            (call_script, "script_party_remove_all_prisoners", ":party_no"),
-          (try_end),
           (try_begin),
             (party_get_slot, ":ai_state", ":party_no", slot_party_ai_state),
             (eq, ":ai_state", spai_retreating_to_center),
             (try_begin),
+              # DA: Drop prisoners only when entering center
               (le, ":distance_to_target", 1),
+              (call_script, "script_party_prisoners_add_party_prisoners", ":target_party", ":party_no"),
+              (call_script, "script_party_remove_all_prisoners", ":party_no"),
               (call_script, "script_party_add_party", ":target_party", ":party_no"),
+              (display_message, "@DEBUG: removing party {reg1} "),
               (remove_party, ":party_no"),
             (try_end),
           (else_try),
@@ -6109,7 +6107,7 @@ simple_triggers = [
             (party_set_ai_patrol_radius, ":party_no", 1),
             (party_set_ai_target_position, ":party_no", pos1),
           (try_end),
-          
+
         # (else_try),
           # #remove party?
         (try_end),
