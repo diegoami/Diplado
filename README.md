@@ -5,7 +5,7 @@ Yet another clone of the Diplomacy Mod for Mount and Blade - Warband.
 ## SOURCE
 
 Forked from 
-[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
+[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/).
 Note that the base version has not been released from the author yet (Somebody). 
 
 __There might be serious issues in this mod, so use at your own risk__
