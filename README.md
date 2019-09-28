@@ -25,9 +25,17 @@ That is why I actually work locally with two modules, _Diplado_master_ and _Dipl
 * Multiplayer seems to be broken in many places
 
 
-## FEATURES
 
-Some additions
+
+## FIXES / FEATURES
+
+Some fixes:
+
+* Lords return reliably from exiles
+* Constable's menu to sell prisoners from the garrison is shown when there are prisoners in the dungeon
+* Patrols' prisoners are put in the dungeon and not into the garrison
+
+Some additions:
 
 * Can spar with your army in the arena
 * No crazy charge in battle of your party (they await your orders)
@@ -35,6 +43,10 @@ Some additions
 * Import / Export companions
 * Whistle for your horse (key M)
 * Taunt your opponents, so that they will attack you (key O)
+
+Features removed
+
+* Training on the training ground does not cause injuries
 
 Also on the **development** branch
 
