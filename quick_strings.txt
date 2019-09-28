@@ -1,7 +1,5 @@
+1411
 <<<<<<< HEAD
-1254
-=======
-1569
 >>>>>>> 7030074... fix: prisoners added to garrison prisoners reliably
 qstr_Breaking_camp... Breaking_camp...
 qstr_Removing_disguise... Removing_disguise...
@@ -1085,7 +1083,7 @@ qstr_Current_party_size_i Current_party_size_is_{reg10}/{reg5}.^Current_party_si
 qstr_{!}{s2}^{s4}:_{reg1} {!}{s2}^{s4}:_{reg1}_({s3})
 qstr_Your_relation_with_t Your_relation_with_the_factions_are:^{s2}
 qstr_{!}WARNING:_Unexpect {!}WARNING:_Unexpected_version_value_in_slot_dplmc_slot_troop_affiliated_in_trp_dplmc_chamberlain:_{reg0}
-qstr_{!}DEBUG:_Internal_u {!}DEBUG:_Internal_update_code_for_current_saved_game_is_{reg0}._Update_code_for_the_current_release_is_190101.
+qstr_{!}DEBUG:_Internal_u {!}DEBUG:_Internal_update_code_for_current_saved_game_is_{reg0}.__Update_code_for_the_current_release_is_170301.
 qstr_nowhere_in_particula nowhere_in_particular
 qstr_all all
 qstr_troop troop
@@ -1258,7 +1256,6 @@ qstr_As_a_caravan_guard_ As_a_caravan_guard,_you_will_be_able_to_bear_weapons_bu
 qstr_As_a_merchant_you_w As_a_merchant,_you_will_be_able_to_bring_any_assortment_of_goods.
 qstr_As_a_bard_you_will_ As_a_bard,_you_will_be_allowed_some_personal_possessions_and_your_instrument.
 <<<<<<< HEAD
-=======
 qstr_{s13}_has_been_taken_ {s13}_has_been_taken_by_the_enemy_and_your_recruiter_who_was_commissioned_to_recruit_{reg10}_recruits_vanished_without_a_trace!
 qstr_{s6}_{reg3}_{reg1?ca {s6}_{reg3}_{reg1?castles:castle}.
 qstr_{s6}_In_addition_we_ha {s6}_In_addition_we_have_{reg2}_soldiers_in_the_field_{reg1?across_{reg3}_armies:in_a_single_army}.
