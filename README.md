@@ -71,3 +71,6 @@ Many to keep track of
 * Execute `source/build_module_lav.bat`
 * Copy the full content of the directory into the Mod's module directorzy
 
+## LEGACY
+
+A stabler (and more boring) mod, with fewer features, can be found [here](https://github.com/diegoami/diplomacy-plus-for-warband/).
