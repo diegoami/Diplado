@@ -2679,7 +2679,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
  (store_faction_of_party, ":contact_town_faction", ":town_with_contacts"),
  (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
  (eq, ":contact_town_faction", "$players_kingdom"), #own faction
- (str_store_party_name, s17, ":contact_town_faction"),
+ (str_store_party_name, s17, ":town_with_contacts"),
  (party_get_slot, ":town_ruler", ":town_with_contacts", slot_town_lord),
  (try_begin),
    (is_between, ":town_ruler", heroes_begin, heroes_end),
