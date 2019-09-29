@@ -2694,7 +2694,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
  (val_min, ":instability", 60), #no descriptor past that point
  (val_div, ":instability", 20), #3 to 0
  (store_sub, ":string", "str_the_s12_is_a_rock_of_stability_politically_speaking_whatever_the_lords_may_think_of_each_other_they_fight_as_one_against_the_common_foe", ":instability"),
- (str_store_string, s12, "@our realm"), #instead of directly storing faction name
+ (str_store_faction_name, s12, ":contact_town_faction"),
  (str_store_string, s19, ":string"),
  (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
  ], "Aye, {s0}, I do have some friends back in {s17}... However, I do not believe {reg18?{s18} would take kindly to this sort of skullduggery:the political landscape is changing so drastically}. It is common knowledge that {s19}", "do_member_trade",[
