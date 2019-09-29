@@ -2673,33 +2673,37 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
  ], "Farewell then, {s21}, for a little while.", "close_window",[]],
 
-#SB : prohibit intel-gathering in own faction
-[anyone,"member_intelgathering_1", [
- (troop_get_slot, ":town_with_contacts", "$g_talk_troop", slot_troop_town_with_contacts),
- (store_faction_of_party, ":contact_town_faction", ":town_with_contacts"),
- (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
- (eq, ":contact_town_faction", "$players_kingdom"), #own faction
- (str_store_party_name, s17, ":contact_town_faction"),
- (party_get_slot, ":town_ruler", ":town_with_contacts", slot_town_lord),
- (try_begin),
-   (is_between, ":town_ruler", heroes_begin, heroes_end),
-   (assign, reg18, 1),
-   (str_store_troop_name, s18, ":town_ruler"),
- (else_try), #own city, unassigned, etc instead of defaulting to ruler
-   (assign, reg18, 0),
- (try_end),
- 
- #use cached instability value
- (faction_get_slot, ":instability", ":contact_town_faction", slot_faction_instability), #0 to 100
- (val_min, ":instability", 60), #no descriptor past that point
- (val_div, ":instability", 20), #3 to 0
- (store_sub, ":string", "str_the_s12_is_a_rock_of_stability_politically_speaking_whatever_the_lords_may_think_of_each_other_they_fight_as_one_against_the_common_foe", ":instability"),
- (str_store_string, s12, "@our realm"), #instead of directly storing faction name
- (str_store_string, s19, ":string"),
- (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
- ], "Aye, {s0}, I do have some friends back in {s17}... However, I do not believe {reg18?{s18} would take kindly to this sort of skullduggery:the political landscape is changing so drastically}. It is common knowledge that {s19}", "do_member_trade",[
- #SB : initialize global
- (assign, "$lord_selected", -1),
+# SB : prohibit intel-gathering in own faction
+[anyone, "member_intelgathering_1", [
+    (troop_get_slot, ":town_with_contacts", "$g_talk_troop", slot_troop_town_with_contacts),
+    (store_faction_of_party, ":contact_town_faction", ":town_with_contacts"),
+    (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+    (eq, ":contact_town_faction", "$players_kingdom"),  # own faction
+    (str_store_party_name, s17, ":town_with_contacts"),
+    (party_get_slot, ":town_ruler", ":town_with_contacts", slot_town_lord),
+    (try_begin),
+    (is_between, ":town_ruler", heroes_begin, heroes_end),
+    (assign, reg18, 1),
+    (str_store_troop_name, s18, ":town_ruler"),
+    (else_try),  # own city, unassigned, etc instead of defaulting to ruler
+    (assign, reg18, 0),
+    (try_end),
+
+    # use cached instability value
+    (faction_get_slot, ":instability", ":contact_town_faction", slot_faction_instability),  # 0 to 100
+    (val_min, ":instability", 60),  # no descriptor past that point
+    (val_div, ":instability", 20),  # 3 to 0
+    (store_sub, ":string",
+     "str_the_s12_is_a_rock_of_stability_politically_speaking_whatever_the_lords_may_think_of_each_other_they_fight_as_one_against_the_common_foe",
+     ":instability"),
+    (str_store_faction_name, s12, ":contact_town_faction"),
+    (str_store_string, s19, ":string"),
+    (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
+],
+ "Aye, {s0}, I do have some friends back in {s17}... However, I do not believe {reg18?{s18} would take kindly to this sort of skullduggery:the political landscape is changing so drastically}. It is common knowledge that {s19}",
+ "do_member_trade", [
+     # SB : initialize global
+     (assign, "$lord_selected", -1),
  ]],
  
 [anyone,"member_intelgathering_1", [
