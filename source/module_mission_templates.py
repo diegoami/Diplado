@@ -2122,59 +2122,59 @@ tournament_triggers = [
     # (store_trigger_param_1, ":agent_no"),
     # ]),
 #even though $disable_npc_complaints should really only apply for companions
- (ti_on_agent_killed_or_wounded, 0, 0, [
-        # (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
-      (eq, "$g_mt_mode", abm_tournament),
-      (eq, "$disable_npc_complaints", 0),
-    ],
-    [
-      (store_trigger_param_1, ":dead_agent_no"),
-      (store_trigger_param_2, ":killer_agent_no"),
-
-      # (get_player_agent_no, ":player_agent"),
-      # (eq, ":killer_agent_no", ":player_agent"),
-      (agent_get_troop_id, ":killer_troop", ":killer_agent_no"),
-      (troop_is_hero, ":killer_troop"),
-
-      (agent_is_human, ":dead_agent_no"),
-      (agent_get_troop_id, ":wounded_troop", ":dead_agent_no"),
-      (troop_is_hero, ":wounded_troop"),
-      (is_between, ":wounded_troop", heroes_begin, heroes_end), #exclude common tournament fighters (and the player from being a sore loser)
-      (try_begin), #calculate relation loss
-        (troop_get_slot, ":lrep", ":wounded_troop", slot_lord_reputation_type),
-        (this_or_next|eq, ":lrep", lrep_quarrelsome),
-        (troop_slot_eq, ":killer_troop", slot_lord_reputation_type, lrep_quarrelsome),
-        (assign, ":relation_loss", -2),
-      (else_try),
-        (neq, ":lrep", lrep_martial), #martial lords don't mind losing fights
-        (neq, ":lrep", lrep_goodnatured), #goodnature ones don't care
-        (neq, ":lrep", lrep_none), #don't reduce king/pretender relations
-        (this_or_next|eq, ":lrep", lrep_roguish), #only the "bad" companion lrep
-        (neg|is_between, ":wounded_troop", companions_begin, companions_end),
-        (assign, ":relation_loss", -1),
-      (else_try),
-        (assign, ":relation_loss", 0),
-      (try_end),
-      
-      # (agent_get_position, pos1, ":killer_agent_no"),
-      # (agent_get_position, pos2, ":dead_agent_no"),
-      # (get_distance_between_positions, ":dist", pos1, pos2),
-      # (lt, ":dist", 200),
-      # (try_begin), #backstabbed
-        # (position_is_behind_position, pos1, pos2),
-        # (call_script, "script_troop_change_relation_with_troop", "$g_player_troop", ":wounded_troop", -1),
-        # # (eq, "$g_player_troop", "trp_player"),
-        # # (call_script, "script_change_player_honor", -1),
-      # (try_end),
-      (try_begin), #friendly fire, it happens
-        (eq, ":killer_troop", "trp_player"),
-        (agent_is_ally, ":dead_agent_no"),
-        (call_script, "script_change_player_relation_with_troop", ":wounded_troop", -3),
-      (else_try),
-        (call_script, "script_troop_change_relation_with_troop", ":killer_troop", ":wounded_troop", ":relation_loss"),
-      (try_end),
-      (call_script, "script_change_troop_renown", ":killer_troop", 1), #Static amount
-    ]),
+ # (ti_on_agent_killed_or_wounded, 0, 0, [
+ #        # (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
+ #      (eq, "$g_mt_mode", abm_tournament),
+ #      (eq, "$disable_npc_complaints", 0),
+ #    ],
+ #    [
+ #      (store_trigger_param_1, ":dead_agent_no"),
+ #      (store_trigger_param_2, ":killer_agent_no"),
+ #
+ #      # (get_player_agent_no, ":player_agent"),
+ #      # (eq, ":killer_agent_no", ":player_agent"),
+ #      (agent_get_troop_id, ":killer_troop", ":killer_agent_no"),
+ #      (troop_is_hero, ":killer_troop"),
+ #
+ #      (agent_is_human, ":dead_agent_no"),
+ #      (agent_get_troop_id, ":wounded_troop", ":dead_agent_no"),
+ #      (troop_is_hero, ":wounded_troop"),
+ #      (is_between, ":wounded_troop", heroes_begin, heroes_end), #exclude common tournament fighters (and the player from being a sore loser)
+ #      (try_begin), #calculate relation loss
+ #        (troop_get_slot, ":lrep", ":wounded_troop", slot_lord_reputation_type),
+ #        (this_or_next|eq, ":lrep", lrep_quarrelsome),
+ #        (troop_slot_eq, ":killer_troop", slot_lord_reputation_type, lrep_quarrelsome),
+ #        (assign, ":relation_loss", -2),
+ #      (else_try),
+ #        (neq, ":lrep", lrep_martial), #martial lords don't mind losing fights
+ #        (neq, ":lrep", lrep_goodnatured), #goodnature ones don't care
+ #        (neq, ":lrep", lrep_none), #don't reduce king/pretender relations
+ #        (this_or_next|eq, ":lrep", lrep_roguish), #only the "bad" companion lrep
+ #        (neg|is_between, ":wounded_troop", companions_begin, companions_end),
+ #        (assign, ":relation_loss", -1),
+ #      (else_try),
+ #        (assign, ":relation_loss", 0),
+ #      (try_end),
+ #
+ #      # (agent_get_position, pos1, ":killer_agent_no"),
+ #      # (agent_get_position, pos2, ":dead_agent_no"),
+ #      # (get_distance_between_positions, ":dist", pos1, pos2),
+ #      # (lt, ":dist", 200),
+ #      # (try_begin), #backstabbed
+ #        # (position_is_behind_position, pos1, pos2),
+ #        # (call_script, "script_troop_change_relation_with_troop", "$g_player_troop", ":wounded_troop", -1),
+ #        # # (eq, "$g_player_troop", "trp_player"),
+ #        # # (call_script, "script_change_player_honor", -1),
+ #      # (try_end),
+ #      (try_begin), #friendly fire, it happens
+ #        (eq, ":killer_troop", "trp_player"),
+ #        (agent_is_ally, ":dead_agent_no"),
+ #        (call_script, "script_change_player_relation_with_troop", ":wounded_troop", -3),
+ #      (else_try),
+ #        (call_script, "script_troop_change_relation_with_troop", ":killer_troop", ":wounded_troop", ":relation_loss"),
+ #      (try_end),
+ #      (call_script, "script_change_troop_renown", ":killer_troop", 1), #Static amount
+ #    ]),
 
   (0, 0, ti_once, [(eq, "$g_mt_mode", abm_tournament),],
    [
