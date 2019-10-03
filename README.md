@@ -5,7 +5,7 @@ Yet another clone of the Diplomacy Mod for Mount and Blade - Warband.
 ## SOURCE
 
 Forked from 
-[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/) from May 2019.
+[1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/).
 Note that the base version has not been released from the author yet (Somebody). 
 
 __There might be serious issues in this mod, so use at your own risk__
@@ -17,6 +17,7 @@ As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=28511
 Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory
 
 **master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
+**minimal** just contains fixes.
 
 That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
@@ -34,6 +35,8 @@ Some fixes:
 * Lords return reliably from exiles
 * Constable's menu to sell prisoners from the garrison is shown when there are prisoners in the dungeon
 * Patrols' prisoners are put in the dungeon and not into the garrison
+* Travellers now keep track of ransom brokers
+* The companions' dialog when they are sent on a spy mission to a town owned by the player's kingdom is correct
 
 Some additions:
 
@@ -71,3 +74,6 @@ Many to keep track of
 * Execute `source/build_module_lav.bat`
 * Copy the full content of the directory into the Mod's module directorzy
 
+## LEGACY
+
+A stabler (and more boring) mod, with fewer features, can be found [here](https://github.com/diegoami/diplomacy-plus-for-warband/).

@@ -2688,7 +2688,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
  (else_try), #own city, unassigned, etc instead of defaulting to ruler
    (assign, reg18, 0),
  (try_end),
- 
+
  #use cached instability value
  (faction_get_slot, ":instability", ":contact_town_faction", slot_faction_instability), #0 to 100
  (val_min, ":instability", 60), #no descriptor past that point
