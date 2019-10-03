@@ -31194,9 +31194,10 @@ scripts = [
       (try_end),
       (try_for_range, ":cur_troop", kingdom_ladies_begin, kingdom_ladies_end),
         (neq, ":cur_troop", "trp_knight_1_1_wife"), #The one who should not appear in game
+        (store_faction_of_troop, ":lady_faction", ":cur_troop"),
         #(troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_lady),
         (troop_slot_eq, ":cur_troop", slot_troop_cur_center, ":center_no"),
-
+        (is_between, ":lady_faction", kingdoms_begin, kingdoms_end),
         (assign, ":lady_meets_visitors", 0),
         (try_begin),
             (this_or_next|troop_slot_eq, "trp_player", slot_troop_spouse, ":cur_troop"), #player spouse goes in position of honor
