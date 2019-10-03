@@ -6406,7 +6406,7 @@ simple_triggers = [
   ]),
 
   # affilated family ai
-   (24 * 0.25,
+   (24 * 7,
    [
 	##nested diplomacy start+ (piggyback on this trigger) allow lords to return from exile
 	(assign, ":save_reg0", reg0),
@@ -6422,12 +6422,12 @@ simple_triggers = [
 		(assign, ":num_exiles", 0),
 		#iterate over lords from a random start point, wrapping back to zero
 		(store_random_in_range, ":rand_no", lords_begin, lords_end),
-        (val_sub, ":rand_no", lords_begin),
+        (val_sub, ":rand_no", lords_begin), #overflow fix
 		(try_for_range, ":index", lords_begin, lords_end),
 		  (store_add, ":troop_no", ":rand_no", ":index"),
 		  (try_begin),
 			 #wrap back around when you go off the end
-			  (ge, ":troop_no", lords_end),
+			(ge, ":troop_no", lords_end),
 			(val_sub, ":troop_no", lords_end),
 			(val_add, ":troop_no", lords_begin),
 		  (try_end),
@@ -6458,7 +6458,7 @@ simple_triggers = [
 		     (eq, ":chosen_lord", -1),
 			 (assign, ":chosen_lord", ":troop_no"),
 		  (try_end),
-      (try_end),
+		(try_end),
 		#search is done
 		(try_begin),
 		 #no lord found

@@ -8622,13 +8622,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 "I have some prisoners -- can you sell them for me?", "dplmc_constable_prisoner",[]],
 
 ##SB : convenience feature of selling prisoners in garrison
-[anyone|plyr,"dplmc_constable_talk",
-[(store_num_regular_prisoners,":prisoners", "$current_town"),(ge,":prisoners",1)],
+[anyone|plyr,"dplmc_constable_talk", #DA: for some reason it always returns the number of prisoners in the player's party
+[(party_get_num_prisoners,":prisoners", "$current_town"),(ge,":prisoners",1)],
 "We have prisoners in the dungeon -- let's have a look over them.", "dplmc_constable_garrison_prisoner_manage",[
 #move prisoner
-(party_clear, "p_temp_party"),
+(party_clear, "p_temp_party_2"),
 (assign, "$g_move_heroes", 1),
-(call_script, "script_party_prisoners_add_party_prisoners", "p_temp_party", "p_main_party"),
+(call_script, "script_party_prisoners_add_party_prisoners", "p_temp_party_2", "p_main_party"),
 (call_script, "script_party_remove_all_prisoners", "p_main_party"),
 #mark global variable here to allow player to hold all the prisoners
 (party_get_num_prisoners, "$diplomacy_var2", "$current_town"),
@@ -8673,7 +8673,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (call_script, "script_party_prisoners_add_party_prisoners", "$current_town", "p_main_party"),
 #restore player's prisoner
 (call_script, "script_party_remove_all_prisoners", "p_main_party"),
-(call_script, "script_party_prisoners_add_party_prisoners", "p_main_party", "p_temp_party"),
+(call_script, "script_party_prisoners_add_party_prisoners", "p_main_party", "p_temp_party_2"),
 (assign, "$g_move_heroes", 0),
 ]],
 
