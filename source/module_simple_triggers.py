@@ -6092,7 +6092,7 @@ simple_triggers = [
           (try_begin), #SB : drop off prisoners
             (le, ":distance_to_target", 3),
             (is_between, ":target_party", walled_centers_begin, walled_centers_end),
-            (call_script, "script_party_add_party_prisoners", ":target_party", ":party_no"),
+            (call_script, "script_party_prisoners_add_party_prisoners", ":target_party", ":party_no"), #DA 3.10.2019: fix to put prisoners in the dungeon and not in the garrison
             (call_script, "script_party_remove_all_prisoners", ":party_no"),
           (try_end),
           (try_begin),
