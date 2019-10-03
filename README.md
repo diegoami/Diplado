@@ -35,8 +35,8 @@ Some fixes:
 * Lords return reliably from exiles
 * Constable's menu to sell prisoners from the garrison is shown when there are prisoners in the dungeon
 * Patrols' prisoners are put in the dungeon and not into the garrison
-* Travellers now keep track of ransom brokers
-* The companions' dialog when they are sent on a spy mission to a town owned by the player's kingdom is correct
+* Fixed dialogue of companions sent to gather information
+* Travellers will keep track of random brokers correctly
 
 Some additions:
 
