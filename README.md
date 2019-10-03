@@ -50,6 +50,7 @@ Some additions:
 Features removed
 
 * Training on the training ground does not cause injuries
+* Relation changes during tournaments
 
 Also on the **development** branch
 
