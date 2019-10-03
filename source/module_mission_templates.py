@@ -4905,7 +4905,7 @@ mission_templates = [
         (jump_to_menu, "mnu_sneak_into_town_caught_ran_away"),
         (mission_enable_talk),
         (finish_mission, 0),
-      ]),
+      ]),  bodyguard_trigger_a, bodyguard_trigger_b, bodyguard_trigger_c,
     ],
   ),
 
