@@ -17,6 +17,7 @@ As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=28511
 Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory
 
 **master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
+**minimal** just contains fixes.
 
 That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
 
