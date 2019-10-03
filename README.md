@@ -8,7 +8,7 @@ Forked from
 [1.174 Updates](https://steamcommunity.com/workshop/filedetails/discussion/285119009/451850849180281143/).
 Note that the base version has not been released from the author yet (Somebody). 
 
-__There might be serious issues in this mod, so use at your own risk__
+__There might be serious issues in this mod, so use at your own risk.__
 
 ## Installation
 
@@ -19,7 +19,7 @@ Then download one of the latest release from **https://github.com/diegoami/Dipla
 **master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
 **minimal** just contains fixes.
 
-That is why I actually work locally with two modules, _Diplado_master_ and _Diplado_develop_
+That is why I work locally with separate modules, such as _Diplado_minimal, _Diplado_master_ and _Diplado_develop_
 
 ## KNOWN ISSUES
 
@@ -35,8 +35,9 @@ Some fixes:
 * Lords return reliably from exiles
 * Constable's menu to sell prisoners from the garrison is shown when there are prisoners in the dungeon
 * Patrols' prisoners are put in the dungeon and not into the garrison
-* Fixed dialogue of companions sent to gather information
-* Travellers will keep track of random brokers correctly
+* Travellers now keep track of ransom brokers
+* The companions' dialog when they are sent on a spy mission to a town owned by the player's kingdom is correct
+* Changing minister will not abort a quest you did not start
 
 Some additions:
 
