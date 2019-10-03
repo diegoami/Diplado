@@ -14021,6 +14021,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 (try_for_range, ":minister_quest", all_quests_begin, all_quests_end),
 (quest_slot_eq, ":minister_quest", slot_quest_giver_troop, "$g_talk_troop"),
+(check_quest_active, ":minister_quest"),
 (call_script, "script_abort_quest", ":minister_quest", 0),
 (try_end),
 ]],
