@@ -39,6 +39,7 @@ Some fixes:
 * The companions' dialog when they are sent on a spy mission to a town owned by the player's kingdom is correct
 * Changing minister will not abort a quest you did not start
 * Removed menu option to delegate quest, as this does not seem to work
+* Exiled ladies do not appear in courts
 
 Some additions:
 
