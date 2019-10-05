@@ -144,7 +144,6 @@ companion_quitting
 member_separate_yes
 member_question
 member_question_2
-member_delegate_quest
 member_morale
 member_background_recap
 member_kingsupport_1
@@ -161,6 +160,7 @@ member_kingsupport_4
 member_intelgathering_3
 member_intelgathering_4
 member_intelgathering_rescue
+member_delegate_quest
 member_delegate_quest_list
 redo_member_quest
 member_delegate_quest_details
