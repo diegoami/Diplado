@@ -2496,20 +2496,21 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone,"member_question", [], "Very well. What did you want to ask?", "member_question_2",[]],
 
 #SB : quest delegation
-[anyone|plyr,"member_question_2", [
-    #has an active quest, coarse range check
-    (assign, ":end", delegate_quests_end),
-    (try_for_range, ":quest_no", delegate_quests_begin, ":end"),
-      (check_quest_active, ":quest_no"),
-      (neg|quest_slot_eq, slot_quest_delegate_level, -1),
-      (assign, ":end", delegate_quests_begin),
-    (try_end),
-    (neq, ":end", delegate_quests_end),
-], "I have a job I'd like for you to handle...", "member_delegate_quest", [
-  (call_script, "script_dplmc_init_quest_delegate_states"), #older savegames
-  (troop_get_slot, ":honorific", "$g_talk_troop", slot_troop_honorific),
-  (str_store_string, s5, ":honorific"),
-]],
+#DA : commented out because it seems to have issues
+# [anyone|plyr,"member_question_2", [
+#     #has an active quest, coarse range check
+#     (assign, ":end", delegate_quests_end),
+#     (try_for_range, ":quest_no", delegate_quests_begin, ":end"),
+#       (check_quest_active, ":quest_no"),
+#       (neg|quest_slot_eq, slot_quest_delegate_level, -1),
+#       (assign, ":end", delegate_quests_begin),
+#     (try_end),
+#     (neq, ":end", delegate_quests_end),
+# ], "I have a job I'd like for you to handle...", "member_delegate_quest", [
+#   (call_script, "script_dplmc_init_quest_delegate_states"), #older savegames
+#   (troop_get_slot, ":honorific", "$g_talk_troop", slot_troop_honorific),
+#   (str_store_string, s5, ":honorific"),
+# ]],
 [anyone|plyr,"member_question_2", [], "How do you feel about the way things are going in this company?", "member_morale",[]],
 #SB : removed duplicate member_background_recap
 [anyone|plyr,"member_question_2", [
