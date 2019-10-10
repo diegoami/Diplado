@@ -48,6 +48,7 @@ af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
 ##diplomacy begin
 
+
 bodyguard_trigger_a = (
     ti_after_mission_start, 0, ti_once, [(neq, "$g_mt_mode", tcm_disguised)],
     # condition for not sneaking in; to exclude prison-breaks, etc change to (eq, "$g_mt_mode", tcm_default")
@@ -3811,6 +3812,7 @@ mission_templates = [
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 
     ]
     ##diplomacy begin
@@ -3889,6 +3891,7 @@ mission_templates = [
       common_battle_inventory,
       common_battle_order_panel,
       common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 
     ]
     ##diplomacy begin
@@ -4032,7 +4035,8 @@ mission_templates = [
       common_hold_ground_in_battle,
       common_battle_inventory,
       common_battle_order_panel,
-      common_battle_order_panel_tick
+      common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 
 ##      #AI Tiggers
 ##      (0, 0, ti_once, [
@@ -4283,6 +4287,7 @@ mission_templates = [
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
       common_battle_inventory,
     ]
     ##diplomacy begin
@@ -4368,6 +4373,7 @@ mission_templates = [
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
       common_battle_inventory,
     ]
     ##diplomacy begin
@@ -4488,6 +4494,7 @@ mission_templates = [
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
       common_battle_inventory,
     ]
     ##diplomacy begin
@@ -4575,6 +4582,7 @@ mission_templates = [
       common_siege_rotate_belfry,
       common_siege_assign_men_to_belfry,
         common_taunting_system,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
     ]
     ##diplomacy begin
     + dplmc_battle_mode_triggers,
@@ -4622,6 +4630,7 @@ mission_templates = [
       common_battle_order_panel_tick,
       common_inventory_not_available,
         common_taunting_system,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 
       (ti_on_agent_killed_or_wounded, 0, 0, [],
        [
@@ -9502,6 +9511,7 @@ mission_templates = [
       custom_battle_check_victory_condition,
       common_battle_victory_display,
       custom_battle_check_defeat_condition,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 	##diplomacy begin
 	] + dplmc_battle_mode_triggers,
 	##diplomacy end
@@ -16922,6 +16932,7 @@ mission_templates = [
 
        common_battle_order_panel,
        common_battle_order_panel_tick,
+      (0, 0, ti_once, [], [(start_presentation, "prsnt_combat_ui")]),
 
        (1, 4, ti_once,
        [

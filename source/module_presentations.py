@@ -12066,6 +12066,10 @@ presentations = [
             (agent_set_slot, ":cur_agent", slot_agent_map_overlay_id, 0),
           (try_end),
           (presentation_set_duration, 0),
+          (try_begin),
+            (eq, "$g_show_minimap", 1),
+            (start_presentation, "prsnt_combat_ui"),
+          (try_end),
         (try_end),
         ]),
       ]),
@@ -17719,6 +17723,241 @@ presentations = [
         ]),
     ]),
 
+  ############################################################################################
+  ### BEGIN + TROOP RATIO BAR, BATTLE MINI MAP & PERSONAL KILL COUNT by Rubik, Windyplains & Artam
+  ############################################################################################
+  ("combat_ui", prsntf_read_only, 0, [
+    (ti_on_presentation_load,
+     [
+       (assign, "$presentation_combat_ui"),
+       (set_fixed_point_multiplier, 1000),
+
+       ## BEGIN + ADD TROOP RATIO BAR TO THE COMBAT UI PRESENTATION
+       (try_begin),
+         (eq, "$g_show_minimap",1),
+
+         (position_set_x, pos1, 380),  # Original value is 35
+         (position_set_y, pos1, 735),  # Original value is 713
+
+         (create_mesh_overlay, "$g_presentation_obj_1", "mesh_white_plane"),
+         (overlay_set_color, "$g_presentation_obj_1", 0xAA1F1F),
+         (overlay_set_position, "$g_presentation_obj_1", pos1),
+
+         (create_mesh_overlay, "$g_presentation_obj_2", "mesh_white_plane"),
+         (overlay_set_color, "$g_presentation_obj_2", 0x1F1FAA),
+         (overlay_set_position, "$g_presentation_obj_2", pos1),
+
+         (create_mesh_overlay, "$g_presentation_obj_3", "mesh_white_plane"),
+         (overlay_set_color, "$g_presentation_obj_3", 0x1FAA1F),
+         (overlay_set_position, "$g_presentation_obj_3", pos1),
+       (try_end),
+       ## END - ADD TROOP RATIO BAR TO THE COMBAT UI PRESENTATION
+
+       ## BEGIN + ADD BATTLE MAP TO THE COMBAT UI PRESENTATION by Windyplains
+       (try_begin),
+       (eq, "$g_show_minimap", 1),
+
+       ## Clean out battle mini-map overlay ID's.
+       (try_for_agents, ":agent_no"),
+       (agent_set_slot, ":agent_no", slot_agent_map_overlay_id, 0),
+       (try_end),
+
+       (get_scene_boundaries, pos2, pos3),
+       (position_transform_position_to_local, pos4, pos2, pos3),
+       (set_fixed_point_multiplier, 1000),
+       (position_get_x, ":map_width", pos4),
+       (position_get_y, ":map_height", pos4),
+       (set_fixed_point_multiplier, 1000),
+       (store_div, ":map_ratio", ":map_height", 100),
+       (store_div, ":map_ratio", ":map_width", ":map_ratio"),
+       (try_begin),
+       (gt, ":map_ratio", 100),
+       (assign, "$g_battle_map_width", 150),
+       (store_div, "$g_battle_map_scale", ":map_width", "$g_battle_map_width"),
+       (store_div, "$g_battle_map_height", ":map_height", "$g_battle_map_scale"),
+       (else_try),
+       (assign, "$g_battle_map_height", 150),
+       (store_div, "$g_battle_map_scale", ":map_height", "$g_battle_map_height"),
+       (store_div, "$g_battle_map_width", ":map_width", "$g_battle_map_scale"),
+       (try_end),
+
+       (create_image_button_overlay, "$g_battle_map_plane", "mesh_white_plane", "mesh_white_plane"),
+       (overlay_set_color, "$g_battle_map_plane", 0),
+       (store_add, ":map_bordered_width", "$g_battle_map_width", 20),
+       (store_add, ":map_bordered_height", "$g_battle_map_height", 20),
+       (store_mul, ":map_scale_x", ":map_bordered_width", 50),
+       (store_mul, ":map_scale_y", ":map_bordered_height", 50),
+       (position_set_x, pos1, ":map_scale_x"),
+       (position_set_y, pos1, ":map_scale_y"),
+       (overlay_set_size, "$g_battle_map_plane", pos1),
+       (store_sub, ":map_pos_x", 990, ":map_bordered_width"),
+       (store_sub, ":map_pos_y", 740, ":map_bordered_height"),
+       (position_set_x, pos1, ":map_pos_x"),
+       (position_set_y, pos1, ":map_pos_y"),
+       (overlay_set_position, "$g_battle_map_plane", pos1),
+       (overlay_set_alpha, "$g_battle_map_plane", 0x80),
+       (try_end),
+       ## END - ADD BATTLE MAP TO THE COMBAT UI PRESENTATION
+
+       ## BEGIN + ADD PERSONAL KILL COUNT TO THE COMBAT UI PRESENTATION by Artam
+       (try_begin),
+       (eq, "$g_show_minimap", 1),
+
+       (create_mesh_overlay, "$g_presentation_obj_4", "mesh_white_plane"),
+       (overlay_set_color, "$g_presentation_obj_4", 0x000000),
+       (overlay_set_alpha, "$g_presentation_obj_4", 0x80),
+       (position_set_x, pos1, 4200),
+       (position_set_y, pos1, 1700),
+       (overlay_set_size, "$g_presentation_obj_4", pos1),
+       (position_set_x, pos1, 0),
+       (position_set_y, pos1, 707),
+       (overlay_set_position, "$g_presentation_obj_4", pos1),
+
+       (create_text_overlay, "$g_presentation_obj_5", s1, tf_with_outline | tf_left_align),
+       (overlay_set_color, "$g_presentation_obj_5", 0xFFFFFF),
+       (overlay_set_position, "$g_presentation_obj_5", pos1),
+       (try_end),
+       ## END - ADD PERSONAL KILL COUNT TO THE COMBAT UI PRESENTATION
+
+       (presentation_set_duration, 999999),
+     ]),
+
+    (ti_on_presentation_run,
+     [
+       ## TROOP RATIO BAR +
+       (try_begin),
+
+       (store_trigger_param_1, ":cur_time"),
+
+       (set_fixed_point_multiplier, 1000),
+       (assign, ":player_count", 0),
+       (assign, ":ally_count", 0),
+       (assign, ":enemy_count", 0),
+       (assign, ":total_count", 0),
+
+       (try_for_agents, ":cur_agent"),
+       (agent_is_human, ":cur_agent"),
+       (agent_is_alive, ":cur_agent"),
+       (agent_get_party_id, ":agent_party", ":cur_agent"),
+       (try_begin),
+       (eq, ":agent_party", "p_main_party"),
+       (val_add, ":player_count", 1),
+       (else_try),
+       (agent_is_ally, ":cur_agent"),
+       (val_add, ":ally_count", 1),
+       (else_try),
+       (val_add, ":enemy_count", 1),
+       (try_end),
+       (try_end),
+       (val_add, ":total_count", ":player_count"),
+       (val_add, ":total_count", ":ally_count"),
+       (val_add, ":total_count", ":enemy_count"),
+
+       (position_set_x, pos1, 12000),
+       (position_set_y, pos1, 300),
+       (overlay_set_size, "$g_presentation_obj_1", pos1),
+
+       (store_add, ":ally_percent", ":player_count", ":ally_count"),
+       (val_mul, ":ally_percent", 12000),
+       (val_div, ":ally_percent", ":total_count"),
+       (position_set_x, pos1, ":ally_percent"),
+       (position_set_y, pos1, 300),
+       (overlay_set_size, "$g_presentation_obj_2", pos1),
+
+       (store_mul, ":player_percent", ":player_count", 12000),
+       (val_div, ":player_percent", ":total_count"),
+       (position_set_x, pos1, ":player_percent"),
+       (position_set_y, pos1, 300),
+       (overlay_set_size, "$g_presentation_obj_3", pos1),
+
+       (store_add, ":ally_percent_2", ":player_count", ":ally_count"),
+       (val_mul, ":ally_percent_2", 240),
+       (val_div, ":ally_percent_2", ":total_count"),
+       (val_add, ":ally_percent_2", 35),
+       (position_set_x, pos1, ":ally_percent_2"),
+       (position_set_y, pos1, 700),
+
+       (store_mul, ":player_percent_2", ":player_count", 240),
+       (val_div, ":player_percent_2", ":total_count"),
+       (val_add, ":player_percent_2", 35),
+       (position_set_x, pos1, ":player_percent_2"),
+       (position_set_y, pos1, 700),
+       (try_end),
+       ## TROOP RATIO BAR -
+
+       ## BATTLE MAP +
+       (try_begin),
+       (eq, "$g_show_minimap", 1),
+
+       (get_scene_boundaries, pos2, pos3),
+
+       (try_for_agents, ":cur_agent"),
+       (agent_is_human, ":cur_agent"),
+       (agent_get_party_id, ":agent_party", ":cur_agent"),
+       (agent_get_slot, ":agent_overlay", ":cur_agent", slot_agent_map_overlay_id),
+       (try_begin),
+       (eq, ":agent_party", "p_main_party"),
+       (try_begin),
+       (agent_is_alive, ":cur_agent"),
+       (call_script, "script_update_agent_position_on_map", ":cur_agent"),
+       (else_try),
+       ### WINDYPLAINS+ ### - Done to prevent object #0 agents erasing object #0 (troop ratio bar background)
+       (neq, ":agent_overlay", 0),
+       ### WINDYPLAINS- ###
+       (overlay_set_alpha, ":agent_overlay", 0),
+       (try_end),
+       (else_try),
+       (agent_is_ally, ":cur_agent"),
+       (try_begin),
+       (agent_is_alive, ":cur_agent"),
+       (call_script, "script_update_agent_position_on_map", ":cur_agent"),
+       (else_try),
+       ### WINDYPLAINS+ ### - Done to prevent object #0 agents erasing object #0 (troop ratio bar background)
+       (neq, ":agent_overlay", 0),
+       ### WINDYPLAINS- ###
+       (overlay_set_alpha, ":agent_overlay", 0),
+       (try_end),
+       (else_try),
+       (try_begin),
+       (agent_is_alive, ":cur_agent"),
+       (call_script, "script_update_agent_position_on_map", ":cur_agent"),
+       (else_try),
+       ### WINDYPLAINS+ ### - Done to prevent object #0 agents erasing object #0 (troop ratio bar background)
+       (neq, ":agent_overlay", 0),
+       ### WINDYPLAINS- ###
+       (overlay_set_alpha, ":agent_overlay", 0),
+       (try_end),
+       (try_end),
+       (try_end),
+       (try_end),
+       ## BATTLE MAP -
+
+       ## PERSONAL KILL COUNT +
+       (try_begin),
+       (eq, "$enable_killcount"),
+
+       (get_player_agent_no, ":player_agent"),
+       (agent_get_kill_count, reg1, ":player_agent", 1),  # SupaNinjaMan
+       (agent_get_kill_count, ":kill_count", ":player_agent"),  # SupaNinjaMan
+       (agent_get_kill_count, ":wound_count", ":player_agent", 1),  # SupaNinjaMan
+       (store_add, reg1, ":kill_count", ":wound_count"),
+       (str_store_string, s1, "@{reg1} kills"),
+       (overlay_set_text, "$g_presentation_obj_5", s1),
+       (try_end),
+       ## PERSONAL KILL COUNT -
+
+       (try_begin),
+       (eq, "$presentation_combat_ui", 1),
+       (gt, ":cur_time", 200),
+       (game_key_clicked, gk_view_orders),
+       (start_presentation, "prsnt_battle"),
+       (try_end),
+     ]),
+  ]),
+  ############################################################################################
+  ### END - TROOP RATIO BAR, BATTLE MINI MAP & PERSONAL KILL COUNT
+  ############################################################################################
+
   ("coop_assign_drop_to_group_member", prsntf_manual_end_only, 0, [
     (ti_on_presentation_load,
      [(set_fixed_point_multiplier, 1000),
@@ -18586,7 +18825,7 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
 
-                    # DA: HOLD GROUND WHEN ENTERING BATTLE
+           # DA: HOLD GROUND WHEN ENTERING BATTLE
 					(create_text_overlay, reg0, "@Hold ground when entering battle:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
 					(overlay_set_position, reg0, pos1),
@@ -18614,42 +18853,74 @@ presentations = [
 					(try_end),
 					# (overlay_set_val, "$g_presentation_obj_admin_panel_4", ":actual_input_value"),
 					(overlay_set_val, reg0, ":actual_input_value"),
-                    (set_container_overlay, -1),
-                    (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
-                    (set_container_overlay, ":container"),
-                    (overlay_set_position, reg0, pos3),
-                    (overlay_set_size, reg0, pos4),
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+          (set_container_overlay, ":container"),
+          (overlay_set_position, reg0, pos3),
+          (overlay_set_size, reg0, pos4),
 #                   (overlay_set_alpha, reg0, 0),
-                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
-                    (val_add, ":num_options", 1),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
 
 
-                    ##DA  GROUP FOR LORDS
-                    (create_text_overlay, reg0, "@Group for lords:", tf_vertical_align_center),
-                    (position_set_y, pos1, ":texts_y"),
-                    (overlay_set_position, reg0, pos1),
-                    (val_sub, ":texts_y", ":y_increment"),
-                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          ##DA  GROUP FOR LORDS
+          (create_text_overlay, reg0, "@Group for lords:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
 
-                    (create_number_box_overlay, reg0, 0, 31),
-                    (position_set_y, pos2, ":inputs_y"),
-                    (overlay_set_position, reg0, pos2),
-                    (try_begin),
-                      (neg|is_between, "$g_group_for_lords", 0, 9),
-                      (assign, "$g_group_for_lords", 0),
-                    (try_end),
-                    (overlay_set_val, reg0, "$g_group_for_lords"),
-                    (val_sub, ":inputs_y", ":y_increment"),
-                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (create_number_box_overlay, reg0, 0, 31),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (try_begin),
+            (neg|is_between, "$g_group_for_lords", 0, 9),
+            (assign, "$g_group_for_lords", 0),
+          (try_end),
+          (overlay_set_val, reg0, "$g_group_for_lords"),
+          (val_sub, ":inputs_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
 
-                    (set_container_overlay, -1),
-                    (create_mesh_overlay, reg0, "mesh_pic_castle1"),
-                    (set_container_overlay, ":container"),
-                    (overlay_set_size, reg0, pos4),
-                    (overlay_set_position, reg0, pos3),
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_castle1"),
+          (set_container_overlay, ":container"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
 #                    (overlay_set_alpha, reg0, 0),
-                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
-                    (val_add, ":num_options", 1),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+
+           # MINIMAP
+					(create_text_overlay, reg0, "@Show mini map:", tf_vertical_align_center),
+					(position_set_y, pos1, ":texts_y"),
+					(overlay_set_position, reg0, pos1),
+          (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+					(val_sub, ":texts_y", ":y_increment"),
+
+
+					(create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+
+					(position_set_x, pos2, 450),
+					(position_set_y, pos2, ":inputs_y"),
+					(overlay_set_position, reg0, pos2),
+					(val_sub, ":inputs_y", ":y_increment"),
+					# (assign, "$g_presentation_obj_admin_panel_4", reg0),
+           (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+
+					(try_begin),
+						(eq, "$g_show_minimap", 1),
+						(assign, ":actual_input_value", 1),
+					(else_try),
+						(assign, ":actual_input_value", 0),
+					(try_end),
+					(overlay_set_val, reg0, ":actual_input_value"),
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_wounded"),
+          (set_container_overlay, ":container"),
+          (overlay_set_position, reg0, pos3),
+          (overlay_set_size, reg0, pos4),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
                     
 					(set_container_overlay, -1),
 
@@ -18679,16 +18950,16 @@ presentations = [
 					## BUTTONS
 
 
-                    (position_set_x, pos1, 900),
-                    (try_begin),
-                      (eq, "$g_dplmc_battle_continuation", 0),
-					  (position_set_y, pos1, 125),
-					  (create_game_button_overlay, reg0, "str_spectator_camera", tf_center_justify),
-					  (overlay_set_position, reg0, pos1),
-					  (assign, "$g_dplmc_cam_activated", reg0),
-                    (else_try),
-					  (assign, "$g_dplmc_cam_activated", -1),
-                    (try_end),
+          (position_set_x, pos1, 900),
+          (try_begin),
+            (eq, "$g_dplmc_battle_continuation", 0),
+            (position_set_y, pos1, 125),
+            (create_game_button_overlay, reg0, "str_spectator_camera", tf_center_justify),
+            (overlay_set_position, reg0, pos1),
+            (assign, "$g_dplmc_cam_activated", reg0),
+          (else_try),
+            (assign, "$g_dplmc_cam_activated", -1),
+          (try_end),
                     
 					# (position_set_x, pos1, 900),
 					(position_set_y, pos1, 75),
@@ -18744,6 +19015,7 @@ presentations = [
                         (assign, "$g_dplmc_terrain_advantage", DPLMC_TERRAIN_ADVANTAGE_ENABLE),
                         (assign, "$g_dplmc_holdground_entering_battle", DPLMC_HOLDGROUND_ENTERING_BATTLE_ENABLE),
                         (assign, "$g_dplmc_group_for_lords", 0),
+                        (assign, "$g_show_minimap", 0),
                         (assign, "$g_dplmc_hold", DPLMC_LORD_RECYCLING_ENABLE),
                         (assign, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
                         (assign, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
@@ -18867,8 +19139,12 @@ presentations = [
                         (assign, "$g_dplmc_holdground_entering_battle", ":value"),
 
                     (else_try), ## GROUP FOR LORDS
-						(troop_slot_eq, "trp_temp_array_b", 13, ":object"),
-						(assign, "$g_group_for_lords", ":value"),
+                        (troop_slot_eq, "trp_temp_array_b", 13, ":object"),
+                        (assign, "$g_group_for_lords", ":value"),
+
+                    (else_try),  ## GROUP FOR LORDS
+                      (troop_slot_eq, "trp_temp_array_b", 14, ":object"),
+                      (assign, "$g_show_minimap", ":value"),
                     (try_end),
 
                 ]

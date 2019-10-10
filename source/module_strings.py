@@ -5150,6 +5150,7 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_reputation_custodian", "It is believed that {s46} is a wise investor."),
   ("dplmc_setting_tt11", "This option orders your soldiers to hold ground when entering battle."),
   ("dplmc_setting_tt12","This option allows you to choose a custom group for lords (0 for default assignment)."),  #
+  ("dplmc_setting_tt13","This option shows a minimap."),  #
 
             #utility for skill names
 ]+[

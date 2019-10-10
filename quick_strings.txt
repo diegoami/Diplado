@@ -1,4 +1,4 @@
-1571
+1573
 qstr_Breaking_camp... Breaking_camp...
 qstr_{!}{s3}_commander_of {!}{s3}_commander_of_party_#{reg4}_which_is_not_his_troop_leaded_party_{reg5}
 qstr_{!}_Commanded_party_ {!}_Commanded_party_#{reg4}_is_{s3},_troop_leaded_party_#{reg5}_is_{s65}
@@ -1570,3 +1570,5 @@ qstr_Debug:_Party_add_par Debug:_Party_add_party_{reg1}_-->_{reg0}
 qstr_Debug:_Adding_{reg3} Debug:_Adding_{reg3}_of_{reg2}_to_{reg0}
 qstr_DEBUG:_{reg20}_:_{s1 DEBUG:_{reg20}_:_{s17}
 qstr_{s4}_is_in_the_town {s4}_is_in_the_town
+qstr_{reg1}_kills {reg1}_kills
+qstr_Show_mini_map: Show_mini_map:

@@ -1,5 +1,5 @@
 stringsfile version 1
-3831
+3832
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -3789,6 +3789,7 @@ str_dplmc_reputation_benefactor It_is_widely_known_that_{s46}_is_a_friend_of_the
 str_dplmc_reputation_custodian It_is_believed_that_{s46}_is_a_wise_investor.
 str_dplmc_setting_tt11 This_option_orders_your_soldiers_to_hold_ground_when_entering_battle.
 str_dplmc_setting_tt12 This_option_allows_you_to_choose_a_custom_group_for_lords_(0_for_default_assignment).
+str_dplmc_setting_tt13 This_option_shows_a_minimap.
 str_skl_trade Trade
 str_skl_leadership Leadership
 str_skl_prisoner_management Prisoner_Management

@@ -1367,3 +1367,10 @@ g_dplmc_holdground_entering_battle
 g_group_for_lords
 g_dplmc_group_for_lords
 g_dplmc_hold
+g_dplmc_mini_map
+g_show_minimap
+presentation_combat_ui
+enable_troop_ratio_bar
+enable_battle_minimap
+enable_killcount
+show_minimap_1
