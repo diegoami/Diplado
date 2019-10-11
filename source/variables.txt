@@ -1287,3 +1287,4 @@ g_dplmc_lord_recycling
 g_dplmc_holdground_entering_battle
 g_dplmc_group_for_lords
 g_show_minimap
+presentation_combat_ui
