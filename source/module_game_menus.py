@@ -11452,7 +11452,7 @@ TOTAL:  {reg5}"),
 
   (
     "town",mnf_enable_hot_keys|mnf_scale_picture,
-    "{s10} {s14}^{s11}{s12}{s13}",
+    "{s10} {s14}^{s11}{s12}{s13} {s16}",
     "none",
     [
         (try_begin),
@@ -11772,7 +11772,9 @@ TOTAL:  {reg5}"),
           (eq,":castle_garrison_size",0),
           (assign,"$castle_undefended",1),
         (try_end),
-
+        #Who's in the hall? {s16} + Dj_FRedy
+        (call_script, "script_whos_in_the_hall", "$current_town"),
+        #Who's in the hall? - Dj_FRedy
         (call_script, "script_set_town_picture"),
 
 #		(str_clear, s5), #alert player that there are new rumors

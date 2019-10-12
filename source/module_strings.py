@@ -5151,7 +5151,16 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_reputation_roguish", "It is whispered that {s46} lives life to the full."),
   ("dplmc_reputation_benefactor", "It is widely known that {s46} is a friend of the commoners."),
   ("dplmc_reputation_custodian", "It is believed that {s46} is a wise investor."),
-
+  #Who's in the hall?
+  ("s22_and_s19", "{s22} and {s19}"),
+  ("s22_coma_s19", "{s22}, {s19}"),
+  ("s23_and_s20", "{s23} and {s20}"),
+  ("s23_coma_s20", "{s23}, {s20}"),
+  ("s24_and_s21", "{s24} and {s21}"),
+  ("s24_coma_s21", "{s24}, {s21}"),
+  ("s17_and_s18", "{s17} and {s18}"),
+  ("s17_coma_s18", "{s17}, {s18}"),
+  ("nobles_at_hall", "{reg0?Nobles at hall {reg0}.{reg1? Lords {reg1} ({s18}).:} {reg2?Ladies {reg2} ({s19}).:}:}{reg4? pretenders to the throne {reg4} ({s21}).:} {reg3?Heroes in the tavern {reg3} ({s20}).:}"),
 
             #utility for skill names
 ]+[
