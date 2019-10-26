@@ -1,6 +1,4 @@
 2979
-<<<<<<< HEAD
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 qstr_Breaking_camp... Breaking_camp...
 qstr_Removing_disguise... Removing_disguise...
 qstr_{s17}_has_{reg17}_de {s17}_has_{reg17}_denars
