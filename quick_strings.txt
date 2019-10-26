@@ -1,13 +1,4 @@
 2994
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 qstr_Breaking_camp... Breaking_camp...
 qstr_Removing_disguise... Removing_disguise...
 qstr_{s17}_has_{reg17}_de {s17}_has_{reg17}_denars
@@ -2978,9 +2969,6 @@ qstr_{reg3}_state {reg3}_state
 qstr_{s1}_price_:_{reg2}_or_{re {s1}_price_:_{reg2}_or_{reg4}_at_probability:_{reg3};{reg1}
 qstr_{s1}_{reg1}/{reg3}_ {s1}_{reg1}/{reg3},_{reg2}_raw
 qstr_realm realm
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
-<<<<<<< HEAD
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 qstr_DEBUG:_{reg20}_:_{s1 DEBUG:_{reg20}_:_{s17}
 qstr_{s4}_is_in_the_town {s4}_is_in_the_town
 qstr_{reg1}_kills {reg1}_kills
@@ -2990,6 +2978,4 @@ qstr_get_quest get_quest
 qstr_Target_amount_1_{reg Target_amount_1_{reg0}
 qstr_Target_amount_2_{reg Target_amount_2_{reg0}
 qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
->>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 qstr_Main_hero_fallen Main_hero_fallen
