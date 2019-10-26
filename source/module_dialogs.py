@@ -41153,7 +41153,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (is_between, ":quest_target_item", food_begin, food_end)
   ],
    "I have a cargo of {s6} that needs to be delivered to the tavern in {s4}.\
- If you can take {reg6} units of {s6} to {s4} in 7 days before any goes bad, you may earn {reg8} denars.\
+ If you can take {reg5} units ({reg6} slots) of {s6} to {s4} in 7 days before any goes bad, you may earn {reg8} denars.\
  What do you say?", "merchant_quest_brief_deliver_wine",
    [
     (quest_get_slot, reg5, "qst_deliver_wine", slot_quest_target_amount),
@@ -41169,7 +41169,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (setup_quest_text,"qst_deliver_wine"),
     #SB : temp item count
     (store_div, "$temp", reg5, ":max_amount"),
-    (str_store_string, s2, "@{s9} of {s3} asked you to deliver {reg5} / {reg6} units of {s6} to the tavern in {s4} in 7 days."),
+    (str_store_string, s2, "@{s9} of {s3} asked you to deliver {reg5} units ({reg6} slots) of {s6} to the tavern in {s4} in 7 days."),
     #s2 should not be changed until the decision is made
    ]],
   [anyone,"merchant_quest_brief", [(eq,"$random_merchant_quest_no","qst_deliver_wine")],
