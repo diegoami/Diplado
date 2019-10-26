@@ -1,5 +1,5 @@
 stringsfile version 1
-3841
+3832
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -3790,15 +3790,6 @@ str_dplmc_npc_qst_train_peasants_against_bandits Train_peasants
 str_dplmc_reputation_roguish It_is_whispered_that_{s46}_lives_life_to_the_full.
 str_dplmc_reputation_benefactor It_is_widely_known_that_{s46}_is_a_friend_of_the_commoners.
 str_dplmc_reputation_custodian It_is_believed_that_{s46}_is_a_wise_investor.
-str_s22_and_s19 {s22}_and_{s19}
-str_s22_coma_s19 {s22},_{s19}
-str_s23_and_s20 {s23}_and_{s20}
-str_s23_coma_s20 {s23},_{s20}
-str_s24_and_s21 {s24}_and_{s21}
-str_s24_coma_s21 {s24},_{s21}
-str_s17_and_s18 {s17}_and_{s18}
-str_s17_coma_s18 {s17},_{s18}
-str_nobles_at_hall {reg0?Nobles_at_hall_{reg0}.{reg1?_Lords_{reg1}_({s18}).:}_{reg2?Ladies_{reg2}_({s19}).:}:}{reg4?_pretenders_to_the_throne_{reg4}_({s21}).:}_{reg3?Heroes_in_the_tavern_{reg3}_({s20}).:}
 str_skl_trade Trade
 str_skl_leadership Leadership
 str_skl_prisoner_management Prisoner_Management

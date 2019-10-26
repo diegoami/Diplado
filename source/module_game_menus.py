@@ -11452,7 +11452,7 @@ TOTAL:  {reg5}"),
 
   (
     "town",mnf_enable_hot_keys|mnf_scale_picture,
-    "{s10} {s14}^{s11}{s12}{s13} {s16}",
+    "{s10} {s14}^{s11}{s12}{s13}",
     "none",
     [
         (try_begin),
@@ -11772,9 +11772,8 @@ TOTAL:  {reg5}"),
           (eq,":castle_garrison_size",0),
           (assign,"$castle_undefended",1),
         (try_end),
-        #Who's in the hall? {s16} + Dj_FRedy
-        (call_script, "script_whos_in_the_hall", "$current_town"),
-        #Who's in the hall? - Dj_FRedy
+
+
         (call_script, "script_set_town_picture"),
 
 #		(str_clear, s5), #alert player that there are new rumors
@@ -11802,6 +11801,11 @@ TOTAL:  {reg5}"),
           (faction_slot_eq, ":center_faction", slot_faction_ai_state, sfai_feast),
           (faction_slot_eq, ":center_faction", slot_faction_ai_object, "$current_town"),
           (str_store_string, s1, "str__join_the_feast"),
+        (else_try),
+          (assign, "$temp", reg0),
+          (call_script, "script_whos_in_the_hall", "$current_town"),
+          (str_store_string, s1, "@ ({reg0?{reg0}:No} Nobles)"),
+          (assign, reg0, "$temp"),
         (try_end),
         #SB : some gender string tweaks
         (try_begin),
@@ -11867,8 +11871,12 @@ TOTAL:  {reg5}"),
             (faction_slot_eq, ":center_faction", slot_faction_ai_state, sfai_feast),
             (faction_slot_eq, ":center_faction", slot_faction_ai_object, "$current_town"),
             (str_store_string, s1, "str__join_the_feast"),
+          (else_try),
+            (assign, "$temp", reg0),
+            (call_script, "script_whos_in_the_hall", "$current_town"),
+            (str_store_string, s1, "@ ({reg0?{reg0}:No} Nobles)"),
+            (assign, reg0, "$temp"),
           (try_end),
-
           ],"Go to the castle{s1}.",
        [
            (try_begin),
