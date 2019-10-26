@@ -53,13 +53,13 @@ Some additions:
 
 Features removed
 
-* Training on the training ground does not cause injuries
+* Training on the training ground, including trainer, does not cause injuries
 * Relation changes during tournaments
 
 Also on the **development** branch
 
 * Option to turn the hold ground command on or off
-* Option to assign lords to a default group
+* Option to assign allied lords to a default control group
 * Minimap, troop ratio and kill count in the battle screen, with the option to turn it off 
 
 **master** releases' save files are backwardly compatible, but **develop** releases may contain more interesting features.
