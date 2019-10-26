@@ -2501,7 +2501,7 @@ simple_triggers = [
          (store_skill_level, ":skill", "skl_prisoner_management", "trp_player"),
          (val_sub, ":chance", ":skill"), #50 to 35
        (try_end), #also chance is /1000 not /100
-       (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", "p_main_party", hero_escape_from_player_chance),
+       (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", "p_main_party", ":chance"),
        (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
 ##         (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
          (assign, ":chance", hero_escape_from_center_chance),
@@ -6089,14 +6089,19 @@ simple_triggers = [
           (gt, ":target_party", 0),
           (store_distance_to_party_from_party, ":distance_to_target", ":party_no", ":target_party"),
           (le, ":distance_to_target", 5),
+
+          (try_begin), #SB : drop off prisoners
+            (le, ":distance_to_target", 3),
+            (is_between, ":target_party", walled_centers_begin, walled_centers_end),
+            (call_script, "script_party_prisoners_add_party_prisoners", ":target_party", ":party_no"), #DA 3.10.2019: fix to put prisoners in the dungeon and not in the garrison
+            # (call_script, "script_party_add_party_prisoners", ":target_party", ":party_no"),
+            (call_script, "script_party_remove_all_prisoners", ":party_no"),
+          (try_end),
           (try_begin),
             (party_get_slot, ":ai_state", ":party_no", slot_party_ai_state),
             (eq, ":ai_state", spai_retreating_to_center),
             (try_begin),
-              # DA: Drop prisoners only when entering center
               (le, ":distance_to_target", 1),
-              (call_script, "script_party_prisoners_add_party_prisoners", ":target_party", ":party_no"),
-              (call_script, "script_party_remove_all_prisoners", ":party_no"),
               (call_script, "script_party_add_party", ":target_party", ":party_no"),
               (remove_party, ":party_no"),
             (try_end),
@@ -6419,12 +6424,12 @@ simple_triggers = [
 		(assign, ":num_exiles", 0),
 		#iterate over lords from a random start point, wrapping back to zero
 		(store_random_in_range, ":rand_no", lords_begin, lords_end),
-        (val_sub, ":rand_no", lords_begin),
+        (val_sub, ":rand_no", lords_begin), #overflow fix
 		(try_for_range, ":index", lords_begin, lords_end),
 		  (store_add, ":troop_no", ":rand_no", ":index"),
 		  (try_begin),
 			 #wrap back around when you go off the end
-			  (ge, ":troop_no", lords_end),
+			(ge, ":troop_no", lords_end),
 			(val_sub, ":troop_no", lords_end),
 			(val_add, ":troop_no", lords_begin),
 		  (try_end),
@@ -6455,7 +6460,7 @@ simple_triggers = [
 		     (eq, ":chosen_lord", -1),
 			 (assign, ":chosen_lord", ":troop_no"),
 		  (try_end),
-      (try_end),
+		(try_end),
 		#search is done
 		(try_begin),
 		 #no lord found
