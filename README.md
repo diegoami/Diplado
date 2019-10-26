@@ -14,19 +14,16 @@ __There might be serious issues in this mod, so use at your own risk.__
 
 As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=285119009), make a copy of Modules\Native and name it Diplado or as you wish. 
 
-Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory
+Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory.
 
-**master** releases contain changes which do not break compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
-**minimal** just contains fixes.
+**master** releases contain changes which do not break backward compatibility with 4.3+ Steam for 1.174, while **develop** releases contain feature that might break downward compatibility with the base version, but contain more features and life improvements.
+**minimal** just contains fixes. I advise you choose a **develop** release.
 
 That is why I work locally with separate modules, such as _Diplado_minimal_, _Diplado_master_ and _Diplado_develop_
 
 ## KNOWN ISSUES
 
 * Multiplayer seems to be broken in many places
-
-
-
 
 ## FIXES / FEATURES
 
@@ -50,6 +47,7 @@ Some additions:
 * Import / Export companions
 * Whistle for your horse (key M)
 * Taunt your opponents, so that they will attack you (key O)
+* Main screen informs you how many lords are in town / castle hall
 
 Features removed
 

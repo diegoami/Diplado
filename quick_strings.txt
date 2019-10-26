@@ -1,4 +1,6 @@
-2980
+2979
+<<<<<<< HEAD
+>>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 qstr_Breaking_camp... Breaking_camp...
 qstr_Removing_disguise... Removing_disguise...
 qstr_{s17}_has_{reg17}_de {s17}_has_{reg17}_denars
@@ -2975,7 +2977,4 @@ qstr_{reg1}_kills {reg1}_kills
 qstr_Show_mini_map: Show_mini_map:
 qstr_{s9}_of_{s3}_asked_you {s9}_of_{s3}_asked_you_to_deliver_{reg5}_/_{reg6}_units_of_{s6}_to_the_tavern_in_{s4}_in_7_days.
 qstr_get_quest get_quest
-qstr_Target_amount_1_{reg Target_amount_1_{reg0}
-qstr_Target_amount_2_{reg Target_amount_2_{reg0}
-qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
-qstr_Main_hero_fallen Main_hero_fallen
+qstr___{reg0?{reg0}:No}_N _({reg0?{reg0}:No}_Nobles)

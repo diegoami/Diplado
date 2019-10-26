@@ -5148,6 +5148,6 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_reputation_roguish", "It is whispered that {s46} lives life to the full."),
   ("dplmc_reputation_benefactor", "It is widely known that {s46} is a friend of the commoners."),
   ("dplmc_reputation_custodian", "It is believed that {s46} is a wise investor."),
-#utility for skill names
+
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]
