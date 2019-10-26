@@ -1,4 +1,4 @@
-2993
+2994
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2992,3 +2992,4 @@ qstr_Target_amount_2_{reg Target_amount_2_{reg0}
 qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
 >>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
 >>>>>>> 31542c4cd84aeac11de0f1ed1071e60a861f0d99
+qstr_Main_hero_fallen Main_hero_fallen

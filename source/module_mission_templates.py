@@ -5044,13 +5044,14 @@ mission_templates = [
          (reset_visitors),
          (set_jump_entry, 5),
          (jump_to_scene, ":scene"),
-         
-         (store_troop_health, ":hp", "$g_player_troop", 0),
-         (troop_get_slot, ":diff", "$g_talk_troop", slot_troop_trainer_training_difficulty),
-         (store_sub, ":diff", 9, ":diff"),
-         (val_mul, ":hp", ":diff"),
-         (val_div, ":hp", 10),
-         (troop_set_health, "$g_player_troop", ":hp", 0),
+
+         # DA: Champion quest does not affect health
+         # (store_troop_health, ":hp", "$g_player_troop", 0),
+         # (troop_get_slot, ":diff", "$g_talk_troop", slot_troop_trainer_training_difficulty),
+         # (store_sub, ":diff", 9, ":diff"),
+         # (val_mul, ":hp", ":diff"),
+         # (val_div, ":hp", 10),
+         # (troop_set_health, "$g_player_troop", ":hp", 0),
          ]),
       (1, 3, ti_once,
        [
@@ -5066,7 +5067,7 @@ mission_templates = [
          (get_player_agent_no, ":agent"),
          # (store_agent_hit_points, ":hp", ":agent", 0),
          # (troop_set_health, "$g_player_troop", ":hp", 0),
-         (call_script, "script_agent_apply_training_health", ":agent"),
+         # (call_script, "script_agent_apply_training_health", ":agent"),
          
          (mission_enable_talk),
          (start_mission_conversation, "$g_talk_troop"),
