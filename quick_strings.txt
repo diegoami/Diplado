@@ -1,5 +1,7 @@
-3139
+3144
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> somebody_ver
 qstr_Breaking_camp... Breaking_camp...
 qstr_{!}{s3}_commander_of {!}{s3}_commander_of_party_#{reg4}_which_is_not_his_troop_leaded_party_{reg5}
 qstr_{!}_Commanded_party_ {!}_Commanded_party_#{reg4}_is_{s3},_troop_leaded_party_#{reg5}_is_{s65}
@@ -1559,6 +1561,7 @@ qstr_{s1}_{reg0} {s1}_{reg0}
 qstr_{reg3}_state {reg3}_state
 qstr_{s1}_price_:_{reg2}_or_{re {s1}_price_:_{reg2}_or_{reg4}_at_probability:_{reg3};{reg1}
 qstr_{s1}_{reg1}/{reg3}_ {s1}_{reg1}/{reg3},_{reg2}_raw
+<<<<<<< HEAD
 qstr_Breaking_camp... Breaking_camp...
 qstr_{!}{s3}_commander_of {!}{s3}_commander_of_party_#{reg4}_which_is_not_his_troop_leaded_party_{reg5}
 qstr_{!}_Commanded_party_ {!}_Commanded_party_#{reg4}_is_{s3},_troop_leaded_party_#{reg5}_is_{s65}
@@ -3137,4 +3140,6 @@ qstr_get_quest get_quest
 qstr_Target_amount_1_{reg Target_amount_1_{reg0}
 qstr_Target_amount_2_{reg Target_amount_2_{reg0}
 qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
->>>>>>> 45a2ed8... Squashed commit of the following:
+>>>>>>> somebody_ver
+qstr_realm realm
+>>>>>>> somebody_ver
