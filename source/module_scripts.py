@@ -35399,7 +35399,7 @@ scripts = [
           (agent_get_class, ":agent_class", ":cur_agent"),
           (this_or_next|eq, ":agent_class", grc_infantry),
           (eq, ":agent_class", grc_cavalry),
-          (agent_get_slot, ":x_pos", ":cur_agent", 1),
+          (agent_get_slot, ":x_pos", ":cur_agent", slot_agent_target_x_pos),
           (eq, ":x_pos", 0),
           (assign, ":y_pos", 0),
           (try_begin),
@@ -35434,8 +35434,8 @@ scripts = [
             (val_add, ":slot_6_positioned", 1),
           (try_end),
           (val_add, "$belfry_num_slots_positioned", 1),
-          (agent_set_slot, ":cur_agent", 1, ":x_pos"),
-          (agent_set_slot, ":cur_agent", 2, ":y_pos"),
+          (agent_set_slot, ":cur_agent", slot_agent_target_x_pos, ":x_pos"),
+          (agent_set_slot, ":cur_agent", slot_agent_target_y_pos, ":y_pos"),
         (try_end),
       (try_end),
       (try_begin),
@@ -35448,7 +35448,7 @@ scripts = [
           (this_or_next|eq, "$attacker_team", ":cur_agent_team"),
           (             eq, "$attacker_team_2", ":cur_agent_team"),
           (neq, ":player_agent", ":cur_agent"),
-          (agent_get_slot, ":x_pos", ":cur_agent", 1),
+          (agent_get_slot, ":x_pos", ":cur_agent", slot_agent_target_x_pos),
           (eq, ":x_pos", 0),
           (assign, ":y_pos", 0),
           (try_begin),
@@ -35483,8 +35483,8 @@ scripts = [
             (val_add, ":slot_6_positioned", 1),
           (try_end),
           (val_add, "$belfry_num_slots_positioned", 1),
-          (agent_set_slot, ":cur_agent", 1, ":x_pos"),
-          (agent_set_slot, ":cur_agent", 2, ":y_pos"),
+          (agent_set_slot, ":cur_agent", slot_agent_target_x_pos, ":x_pos"),
+          (agent_set_slot, ":cur_agent", slot_agent_target_y_pos, ":y_pos"),
         (try_end),
       (try_end),
     (else_try),
@@ -37981,7 +37981,7 @@ scripts = [
           (party_get_num_prisoners, ":prisoner_count", ":town_no"),
           (gt, ":prisoner_count", 0),
           (party_set_slot, ":town_no", slot_center_ransom_broker, ":troop_no"),
-          (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), #DA: necessary for travellers to know about it
+          (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), #DA 3.10.2019: necessary for travellers to know about him
           (assign, ":limit", 0), #loop breaker
        (try_end),
        (eq, ":limit", 20), #none found

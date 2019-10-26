@@ -4,3 +4,4 @@
 #export_dir = "/Users/diegoamicabile/Library/ApplicationSupport/Steam/steamapps/common/MountBlade Warband/Modules/Diplado_master"
 
 export_dir = "../"
+
