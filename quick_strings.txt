@@ -1,6 +1,8 @@
-1411
+1424
 <<<<<<< HEAD
->>>>>>> 7030074... fix: prisoners added to garrison prisoners reliably
+<<<<<<< HEAD
+>>>>>>> 45a2ed8... Squashed commit of the following:
+>>>>>>> 45a2ed8... Squashed commit of the following:
 qstr_Breaking_camp... Breaking_camp...
 qstr_Removing_disguise... Removing_disguise...
 qstr_{s17}_has_{reg17}_de {s17}_has_{reg17}_denars
@@ -1409,4 +1411,15 @@ qstr_DEBUG:_party_{reg1}_ DEBUG:_party_{reg1}_has_reached_{reg0}
 qstr_DEBUG:_removing_part DEBUG:_removing_party_{reg1}_
 qstr_Debug:_Party_add_par Debug:_Party_add_party_{reg1}_-->_{reg0}
 qstr_Debug:_Adding_{reg3} Debug:_Adding_{reg3}_of_{reg2}_to_{reg0}
->>>>>>> 7030074... fix: prisoners added to garrison prisoners reliably
+<<<<<<< HEAD
+>>>>>>> 45a2ed8... Squashed commit of the following:
+qstr_DEBUG:_{reg20}_:_{s1 DEBUG:_{reg20}_:_{s17}
+qstr_{s4}_is_in_the_town {s4}_is_in_the_town
+qstr_{reg1}_kills {reg1}_kills
+qstr_Show_mini_map: Show_mini_map:
+qstr_{s9}_of_{s3}_asked_you {s9}_of_{s3}_asked_you_to_deliver_{reg5}_/_{reg6}_units_of_{s6}_to_the_tavern_in_{s4}_in_7_days.
+qstr_get_quest get_quest
+qstr_Target_amount_1_{reg Target_amount_1_{reg0}
+qstr_Target_amount_2_{reg Target_amount_2_{reg0}
+qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
+>>>>>>> 45a2ed8... Squashed commit of the following:
