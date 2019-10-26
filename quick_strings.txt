@@ -1,4 +1,4 @@
-1573
+1578
 qstr_Breaking_camp... Breaking_camp...
 qstr_{!}{s3}_commander_of {!}{s3}_commander_of_party_#{reg4}_which_is_not_his_troop_leaded_party_{reg5}
 qstr_{!}_Commanded_party_ {!}_Commanded_party_#{reg4}_is_{s3},_troop_leaded_party_#{reg5}_is_{s65}
@@ -1572,3 +1572,8 @@ qstr_DEBUG:_{reg20}_:_{s1 DEBUG:_{reg20}_:_{s17}
 qstr_{s4}_is_in_the_town {s4}_is_in_the_town
 qstr_{reg1}_kills {reg1}_kills
 qstr_Show_mini_map: Show_mini_map:
+qstr_{s9}_of_{s3}_asked_you {s9}_of_{s3}_asked_you_to_deliver_{reg5}_/_{reg6}_units_of_{s6}_to_the_tavern_in_{s4}_in_7_days.
+qstr_get_quest get_quest
+qstr_Target_amount_1_{reg Target_amount_1_{reg0}
+qstr_Target_amount_2_{reg Target_amount_2_{reg0}
+qstr_Target_amount_3:_{re Target_amount_3:_{reg0}
