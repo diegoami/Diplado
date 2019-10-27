@@ -16,8 +16,7 @@ As described [here](https://steamcommunity.com/sharedfiles/filedetails/?id=28511
 
 Then download one of the latest release from **https://github.com/diegoami/Diplado/releases/** and extract it into said directory.
 
-**master** releases contain changes which do not break compatibility with future releases of 4.3+ Steam for 1.174, while **develop** releases contain feature that might end up have incompatible saves with future releases of the base version, but contain more features and life improvements.
-**minimal** just contains fixes. I advise you choose a **develop** release.
+**minimal** just contains fixes. **master** releases contain changes which do not break compatibility with future releases of 4.3+ Steam for 1.174, while **develop** releases contain features that might end up have incompatible saves with future releases of the base version **develop**, however, contains more features and life improvements.  I advise you choose a **develop** release.
 
 ## KNOWN ISSUES
 
